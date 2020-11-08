@@ -1,0 +1,190 @@
+html, body {
+    background-image: url("bg.png");
+    background-attachment: fixed;
+    background-size: cover;
+}
+body {
+    padding: 10px 2vw;
+    font-family: 'Red Hat Display', sans-serif !important;
+}
+.navbar {
+    display: flex;
+    margin-bottom: 10px;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Red Hat Display', sans-serif;
+    /* margin: 5px 30px; */
+    margin: 1vw 2vmax;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+}
+.left {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.right {
+    display: inline;
+    float: right;
+    text-align: right;
+    margin: 0 auto;
+}
+
+.datecal {
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+}
+.datecal img {
+    width: 25px;
+}
+.datecal span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+}
+
+.profile {
+    flex: 0.5;
+    display: inline-block;
+    margin: auto;
+}
+.profile:first-child {
+    margin-right: 3vw;
+}
+.userpic{
+    background-color: gray;
+    width: 100%;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+    padding-top: 5%;
+}
+.profile p {
+    color: white;
+    font-size: 25px;
+    margin: 10px;
+    text-align: center;
+}
+.profile img {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.journal {
+    background-color: white;
+    flex: 2.5;
+    border-radius: 15px 15px 0 0;
+}
+.header {
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 3vmax;
+    font-size: 18px;
+    padding: 1vh 0;
+    border-radius: 15px 15px 0 0;
+}
+.header img, .grid span img {
+    float: right;
+    margin-right: 30px;
+    width: 25px;
+}
+.wrapper {
+    overflow-y: scroll;
+    height: 35vh;
+    border-radius: 15px;
+}
+.grid {
+    display: grid;
+    /* height: 150px; */
+    grid-template-rows: auto;
+    row-gap: 10px;
+    padding: 10px;
+}
+.grid > div {
+    border: 2px solid #000000;
+    background: linear-gradient(180deg, #FFFFFF 0%, #DDEFFF 100%);
+    border-radius: 20px;
+}
+.entry {
+    display: flex;
+}
+.content {
+    flex: 4;
+    margin-left: 10px;
+}
+.content p {
+    margin: 5px;
+}
+.controls {
+    flex: 2;
+    margin: auto;
+    text-align: right;
+}
+.controls img {
+    padding: 0 10px;
+    width: 23px;
+    margin: auto;
+}
+.title {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.graph {
+    border: 1px solid white;
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+
+
+@media only screen and (max-width: 450px) {
+    .navbar a {
+        margin: 0.5vw 3vw;
+    }
+    .left {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .right {
+        flex: 3;
+        display: inline;
+        float: right;
+        text-align: right;
+        margin: auto;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+    .profile {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    .userpic {
+        width: 60%;
+    }
+    .profile img {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .journal {
+        width: 100%;
+    }
+}
+

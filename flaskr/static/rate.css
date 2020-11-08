@@ -1,0 +1,148 @@
+html {
+    background-image: url("bg.png");
+    background-attachment: fixed;
+    background-size: cover;
+}
+body {
+    padding: 10px 2vw;
+    font-family: 'Red Hat Display', sans-serif !important;
+}
+h3 {
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.space {
+    margin-top: 10px;
+}
+
+/*mood slider*/
+.choose_mood {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+.mood_emoji {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    margin-bottom: -15px;
+}
+.mood_emoji img {
+    position: relative;
+    justify-content: center;
+    margin: auto;
+    width: 30px;
+}
+.tickmarks {
+    display: flex;
+    width: 68%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: -20px;
+    justify-content: space-between;
+    color: white;
+}
+
+.rate {
+    width: 70%;
+    height: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 20px;
+    background-color: white !important;
+    outline: none;
+    opacity: 0.9;
+}
+.rate:hover {
+    opacity: 1;
+}
+.rate::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+}
+
+/*journal entry*/
+.entrydetails {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 2vh;
+}
+.notes, .drawing {
+    flex: 1;
+    background: linear-gradient(180deg, #FFFFFF 30.73%, #C4E2FF 100%);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    text-align: center;
+}
+.notes:first-child {
+    margin-right: 3vw;
+    margin-bottom: 3vw;
+}
+.notes textarea {
+    width: 90%;
+    resize: none;
+    margin-bottom: 3%;
+}
+.canvas-container {
+    text-align: center;
+    margin: auto;
+}
+#draw {
+    border: 1px solid black;
+    justify-content: center;
+    margin: auto;
+}
+.save_btn {
+    text-align: center;
+}
+button {
+    padding: 5px 5vw;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    background: #200E32;
+    color: white;
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .choose_mood {
+        width: 90%;
+    }
+    .mood_emoji {
+        text-align: center;
+        justify-content: center;
+    }
+    .tickmarks {
+        display: flex;
+        width: 67%;
+    }
+    .rate {
+        width: 70%;
+    }
+    
+    .entrydetails {
+        flex-direction: column;
+        background-color: red;
+    }
+    .notes {
+        width: 100%;
+        margin: 0 auto;
+    }
+    /* .notes:first-child {
+        margin-bottom: 20px;
+    } */
+    .drawing {
+        width: 100%;
+    }
+}
