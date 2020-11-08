@@ -1,5 +1,5 @@
 html, body {
-    background-image: url("bg.png");
+    background-image: url("/img/bg.png");
     background-attachment: fixed;
     background-size: cover;
 }
@@ -187,4 +187,3 @@ body {
         width: 100%;
     }
 }
-
