@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    /*border: 1px solid red !important*/
+  }
+  
+  html {
+    overflow-x: hidden;
+  }
+  
+  /* ***NAVIGATION LINKS SECTION *** */
+  
+  #navLinks {
+    height: 30px;
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    margin: 0 0 10px 0;
+    z-index: 2;
+    text-align: center;
+  }
+
+  h1 {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 80px;
+    margin: 0 0 10px 0;
+}
+
+/*styling the home page background image*/
+#front {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  top: 30px;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.6;
+
+  background-image: url("./siteImages/backgroundImage.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.frontText{
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+/*here we are styling the info on the front page to be aligned at the center 
+so it can be easily seen and more presentable */
+#front .frontContainer {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 15px;
+}
