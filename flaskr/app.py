@@ -4,13 +4,13 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello():
+def index():
     return render_template("homePage.html")
 
 
 @app.route('/login')
 def login():
-    return "login page"
+    return render_template("LogInPage.html")
 
 
 @app.route('/mood_randomizer')
@@ -21,3 +21,8 @@ def mood_randomizer():
 @app.route('/mood_rating')
 def mood_rate():
     return render_template("rate.html")
+
+
+@app.route('/chat')
+def chat():
+    return render_template("example.html")

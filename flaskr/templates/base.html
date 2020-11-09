@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device_width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+
+        <!-- to fill in stylesheets used -->
+        {% block stylesheet %}
+        {% endblock %}
+
+        <title>
+            {% block title%}
+            {% endblock %}
+        </title>
+    </head>
+
+    <body>
+        <section id="nav-bar">
+            <div class="left">
+                <a href="">MoodTracker</a>
+                <a href="">MoodRandomizer</a>
+                <a href="">JoyBot</a>
+            </div>
+            <div class="right">
+                <a href="">LogIn</a>
+            </div>
+        </section>
+
+        <section id="main-content">
+            {% block content %}
+            {% endblock %}
+        </section>
+
+        <section id="footer">
+            <div>
+                <a href="">About us</a>
+                <a href="">Contact</a>
+            </div>
+        </section>
+
+    </body>
+
+
+
+</html>
