@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+    <link href="../static/style.html" rel="stylesheet">
+{% endblock %}
+
+
+{% block title %}
+    JoyBot | Chat
+{% endblock %}
+
+{% block content %}
+    <div id="chatbox">
+        <ls id="messages">
+            <li class="joy-message">
+                <div class="profile-pic">
+                    <img src="../static/img/profile.png">
+                </div>
+                <div class="message_content">
+                    Hello, how are you doing today?
+                </div>
+            </li>
+            <li class="user-message">
+                <div class="message-content">
+                    I need help...
+                </div>
+                <div class="profile_pic">
+                    <img src="../static/img/profile.png">
+                </div>
+            </li>
+        </ls>
+    </div>
+
+    <div id="user-input">
+        <div id="input-box">
+            <!-- where user type in their messages -->
+        </div>
+        <button id="send-message">
+            Send
+        </button>
+    </div>
+{% endblock %}
