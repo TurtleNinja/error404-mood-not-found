@@ -14,7 +14,36 @@
                 canvas.isDrawingMode = true;
                 canvas.freeDrawingBrush.width = 5;
                 canvas.freeDrawingBrush.color = "#ff0000";
+                // window.addEventListener('resize', resizeCanvas, false);
+
+                //     window.addEventListener('resize', resizeCanvas, false);
+                //     function resizeCanvas() {
+                //         const outerCanvasContainer = document.getElementsByClassName('drawing');
+                //         const ratio = canvas.getWidth();
+                //         const containerWidth = outerCanvasContainer.clientWidth;
+                //         const containerHeight = outerCanvasContainer.clientHeight;
+
+                //         const scale = containerWidth / containerHeight;
+                //         const zoom = canvas.getZoom() * scale;
+                //         canvas.setDimensions({
+                //             width: containerWidth,
+                //             height: containerWidth/ratio
+                //         });
+                //         canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
+                // }
             }
+
+                // function resizeCanvas() {
+                // canvas.setHeight(window.innerHeight);
+                // canvas.setWidth(window.innerWidth);
+                // canvas = $('.draw');
+                // canvas.setHeight($('.drawing').height() - 100);
+                // console.log(canvas.setHeight($('.drawing').height()));
+                // canvas.setWidth($('.drawing').width());
+                // console.log(canvas.setWidth($('.drawing').width()));
+                // }
+                // resizeCanvas();
+
             function moodupdated(value) {
                 console.log(value);
             }
@@ -59,7 +88,7 @@
             </div>
             <div class="drawing">
                 <p>Drawing Space</p>
-                <canvas id="draw"></canvas>
+                <canvas id="draw" width="300px" height="230pxs"></canvas>
             </div>
         </div>
 
