@@ -17,10 +17,13 @@ def login():
 def mood_randomizer():
     return render_template("mood.html")
 
+@app.route('/mood_tracker')
+def mood_randomizer():
+    return render_template("moodtracker.html")
 
 @app.route('/mood_rating')
 def mood_rate():
-    return render_template("rate.html")
+    return render_template("moodrating.html")
 
 
 @app.route('/chat')
