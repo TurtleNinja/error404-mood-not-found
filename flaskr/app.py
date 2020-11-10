@@ -12,6 +12,10 @@ def index():
 def login():
     return render_template("LogInPage.html")
 
+@app.route('/signup')
+def signup():
+    return render_template("SignUpPage.html")
+
 
 @app.route('/mood_randomizer')
 def mood_randomizer():
