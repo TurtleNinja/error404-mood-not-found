@@ -1,80 +1,82 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="../static/mood.css" type="text/css" rel="stylesheet" >
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
 
-    </head>
-    <body>
-        <div class="navbar">
-            <div class="left">
-                <a href="">MoodTracker</a>
-                <a href="">MoodRandomizer</a>
-                <a href="">JoyBot</a>
+{% block stylesheet %}
+    <link href="../static/mood.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block title %}
+    JoyBot | MoodTracker
+{% endblock %}
+
+{% block content %}
+    <div class="navbar">
+        <div class="left">
+            <a href="">MoodTracker</a>
+            <a href="">MoodRandomizer</a>
+            <a href="">JoyBot</a>
+        </div>
+        <div class="right">
+            <a href="">LogIn</a>
+        </div>
+    </div>
+
+    <div class="datecal">
+        <span><img src="../static/img/calendar.png" alt="cal_icon">&nbsp&nbsp 10/28/20</span>
+    </div>
+    <br>
+
+    <div class="container">
+        <div class="profile">
+            <!-- <img src="profile.png" alt="profile"> -->
+            <div class="userpic">
+                <img src="../static/img/user.png" alt="profile pic">
             </div>
-            <div class="right">
-                <a href="">LogIn</a>
-            </div>
+            <p>Name</p>
         </div>
 
-        <div class="datecal">
-            <span><img src="../static/img/calendar.png" alt="cal_icon">&nbsp&nbsp 10/28/20</span>
-        </div>
-        <br>
-
-        <div class="container">
-            <div class="profile">
-                <!-- <img src="profile.png" alt="profile"> -->
-                <div class="userpic">
-                    <img src="../static/img/user.png" alt="profile pic">
-                </div>
-                <p>Name</p>
+        <div class="journal">
+            <div class="header">
+                <span>Journal Entries<img src="../static/img/plus.png" alt="add entry" width="2%"></span>
             </div>
-
-            <div class="journal">
-                <div class="header">
-                    <span>Journal Entries<img src="../static/img/plus.png" alt="add entry" width="2%"></span>
-                </div>
-                <div class="wrapper">
-                    <div class="grid">
-                        <div class="entry">
-                            <div class="content">
-                                <p class="title">#2</p>
-                                <p>#2 content hereeeeeeeee</p>
-                            </div>
-                            <div class="controls">
-                                <img src="../static/img/edit.png" alt="edit entry">
-                                <img src="../static/img/trash.png" alt="trash">
-                            </div>
+            <div class="wrapper">
+                <div class="grid">
+                    <div class="entry">
+                        <div class="content">
+                            <p class="title">#2</p>
+                            <p>#2 content hereeeeeeeee</p>
                         </div>
-                        <div class="entry">
-                            <div class="content">
-                                <p class="title">#2</p>
-                                <p>#2 content hereeeeeeeee</p>
-                            </div>
-                            <div class="controls">
-                                <img src="../static/img/edit.png" alt="edit entry">
-                                <img src="../static/img/trash.png" alt="trash">
-                            </div>
+                        <div class="controls">
+                            <img src="../static/img/edit.png" alt="edit entry">
+                            <img src="../static/img/trash.png" alt="trash">
                         </div>
-                        <div class="entry">
-                            <div class="content">
-                                <p class="title">#2</p>
-                                <p>#2 content hereeeeeeeee</p>
-                            </div>
-                            <div class="controls">
-                                <img src="../static/img/edit.png" alt="edit entry">
-                                <img src="../static/img/trash.png" alt="trash">
-                            </div>
+                    </div>
+                    <div class="entry">
+                        <div class="content">
+                            <p class="title">#2</p>
+                            <p>#2 content hereeeeeeeee</p>
+                        </div>
+                        <div class="controls">
+                            <img src="../static/img/edit.png" alt="edit entry">
+                            <img src="../static/img/trash.png" alt="trash">
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <div class="content">
+                            <p class="title">#2</p>
+                            <p>#2 content hereeeeeeeee</p>
+                        </div>
+                        <div class="controls">
+                            <img src="../static/img/edit.png" alt="edit entry">
+                            <img src="../static/img/trash.png" alt="trash">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
-        <div class="graph">
-            matplotlib or plotly?
-        </div>
-    </body>
-</html>
+    </div>
+    <br>
+    <div class="graph">
+        matplotlib or plotly?
+    </div>
+{% endblock %}
