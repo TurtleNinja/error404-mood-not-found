@@ -16,6 +16,10 @@ def login():
 def signup():
     return render_template("SignUpPage.html")
 
+@app.route('/mood_randomizer_home')
+def mood_rand_home():
+    return render_template("moodrandhome.html")    
+
 
 @app.route('/mood_randomizer')
 def mood_randomizer():
