@@ -5,32 +5,55 @@
         <meta name="viewport" content="width=device-width, initial-scale=3">
         <title>JoyBot</title>
         <!--MAIN CSS FILE BELOW-->
-        <link href="static/homePage-style.css" type="text/css" rel="stylesheet">
+        <link href="../static/homePage-style.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
     </head>
 
     <body>
-        <header>
-          <nav id="navLinks">
-            <div class="dropdown">
-              <a class="mood-tracker-class" href="index.html"><b>mood tracker</b></a>
-              <a class="mood-randomizer-class" href="#moodRandomizer"><b>mood randomizer</b></a>
-              <a class="joy-bot-class" href="#JoyBot"><b>JoyBot</b></a>
-              <a class="login-class" href="#login"><b>login</b></a>
+        <nav class="nav navbar-default">
+          <div class="nav navbar-nav left">
+            <a href=""><b>mood tracker</b></a>
+            <a href=""><b>mood randomizer</b></a>
+            <a href=""><b>JoyBot</b></a>
+            <div class="nav navbar-nav right">
+              <a href="">log in</a>
             </div>
-          </nav>
-        </header>
+          </div>
+        </nav>
 
         <section id="front">
             <div class="frontContainer">
-              <h1 id="frontText">JoyBot</h1>
-              <h2 class="frontText">Welcome to JoyBot! Our mission is to help our users 
+              <div id="websiteTitle">
+                <h1 id="frontText">JoyBot</h1>
+              </div>
+              <div id="websiteDescription">
+                <h2 class="frontText" id="web-summary">Welcome to JoyBot! Our mission is to help our users 
                 not feel alone. We believe that mental health is a very important issue 
                 that should be dealt with great care and love. So join us! Talk to our JoyBot, 
                 record your moods to better understand your mood patterns, and click on our
                 mood randomizer to help brighten your mood. We, at JoyBot, care about our
                 users and wish them nothing but happiness. Enjoy!
-              </h2>
+                </h2>
+              </div>
+              <div id="joy-image-section">
+                <img class="frontText" id="welcome-joy" src="../static/img/homePage-joy.png">
+              </div>
             </div>
+          </section>
+
+          <section id="frontPage2">
+            <div class="frontContainer2">
+              <div class="frontPage2-boxes" id="moodtracker-box">
+                <h2>mood tracker</h2>
+              </div>
+              <div class="frontPage2-boxes" id="moodrandomizer-box">
+                <h2>mood randomizer</h2>
+              </div>
+              <div class="frontPage2-boxes" id="JoyBot-box">
+                <h2>JoyBot</h2>
+              </div>
+            </div>
+
           </section>
 
     </body>
