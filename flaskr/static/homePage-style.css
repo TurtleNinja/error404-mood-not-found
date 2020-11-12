@@ -8,6 +8,8 @@
     font-family: 'Red Hat Display';
     background-attachment: fixed;
     background-size: cover;
+
+    background-image: linear-gradient(to top, rgba(33,9,182,1), lightblue);
   }
   
   /* ***NAVIGATION LINKS SECTION *** */
@@ -20,7 +22,9 @@ div.navbar-nav {
 }
 
 div.navbar-nav a {
-  color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
   display: inline-block;
   text-decoration: none;
   margin: 1vw 2vmax;
