@@ -16,14 +16,17 @@ def login():
 def signup():
     return render_template("SignUpPage.html")
 
-
-@app.route('/mood_randomizer')
-def mood_randomizer():
-    return render_template("mood.html")
+@app.route('/mood_tracker')
+def mood_tracker():
+    return render_template("moodtracker.html")
 
 @app.route('/mood_rating')
 def mood_rate():
     return render_template("moodrating.html")
+
+@app.route('/mood_randomizer')
+def mood_randomizer():
+    return render_template("moodrandhome.html")
 
 @app.route('/mood_randomizer_laugh')
 def mood_randomizer_laugh():
