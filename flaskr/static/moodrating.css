@@ -1,20 +1,11 @@
-html {
-    background-image: url("img/bg.png");
-    background-attachment: fixed;
-    background-size: cover;
-}
-body {
-    padding: 10px 2vw;
-    font-family: 'Red Hat Display', sans-serif !important;
-}
 h3 {
     text-align: center;
     color: white;
-    margin: 0;
+    margin-top: 0px;
 }
 
 .space {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 /*mood slider*/
@@ -72,6 +63,7 @@ h3 {
     width: 90%;
     margin: auto;
     margin-bottom: 5vh;
+    text-align: center;
 }
 .notes, .drawing {
     background: linear-gradient(180deg, #FFFFFF 30.73%, #C4E2FF 100%);
@@ -82,13 +74,14 @@ h3 {
     text-align: center;
     padding-bottom: 10px;
 }
-.notes:first-child {
-    margin-right: 3vw;
-}
 .notes textarea {
     width: 95%;
     resize: none;
     margin-bottom: 2%;
+    border: 1px solid black;
+}
+.notes textarea:focus {
+    border: 1px solid black;
 }
 
 .save_btn {
@@ -105,9 +98,14 @@ button {
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 450px) {
+    h3 {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 15px;
+    }
     .choose_mood {
-        width: 90%;
+        width: 95%;
     }
     .mood_emoji {
         text-align: center;
@@ -119,20 +117,6 @@ button {
     }
     .rate {
         width: 70%;
-    }
-
-    .entrydetails {
-        flex-direction: column;
-    }
-    .notes {
-        width: 100%;
-        margin: 0 auto;
-    }
-    .notes:first-child {
-        margin-bottom: 20px;
-    }
-    .drawing {
-        width: 100%;
     }
     button {
         padding: 7px 7vw;
