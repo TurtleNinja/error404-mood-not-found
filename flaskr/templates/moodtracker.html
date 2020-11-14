@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block stylesheet %}
+    <link href="../static/style.css" rel="stylesheet">
     <link href="../static/mood.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/scripts/tracker.js"></script>
 {% endblock %}
 
 
@@ -10,17 +13,6 @@
 {% endblock %}
 
 {% block content %}
-    <div class="navbar">
-        <div class="left">
-            <a href="">MoodTracker</a>
-            <a href="">MoodRandomizer</a>
-            <a href="">JoyBot</a>
-        </div>
-        <div class="right">
-            <a href="">LogIn</a>
-        </div>
-    </div>
-
     <div class="datecal">
         <span><img src="../static/img/calendar.png" alt="cal_icon">&nbsp&nbsp 10/28/20</span>
     </div>
@@ -37,18 +29,18 @@
 
         <div class="journal">
             <div class="header">
-                <span>Journal Entries<img src="../static/img/plus.png" alt="add entry" width="2%"></span>
+                <span>Journal Entries<img src="../static/img/plus.png" alt="add entry" class="add" width="2%"></span>
             </div>
             <div class="wrapper">
                 <div class="grid">
                     <div class="entry">
                         <div class="content">
                             <p class="title">#2</p>
-                            <p>#2 content hereeeeeeeee</p>
+                            <p>#1 content hereeeeeeeee</p>
                         </div>
                         <div class="controls">
-                            <img src="../static/img/edit.png" alt="edit entry">
-                            <img src="../static/img/trash.png" alt="trash">
+                            <img src="../static/img/edit.png" alt="edit entry" class="edit">
+                            <img src="../static/img/trash.png" alt="trash" class="trash">
                         </div>
                     </div>
                     <div class="entry">
@@ -57,18 +49,18 @@
                             <p>#2 content hereeeeeeeee</p>
                         </div>
                         <div class="controls">
-                            <img src="../static/img/edit.png" alt="edit entry">
-                            <img src="../static/img/trash.png" alt="trash">
+                            <img src="../static/img/edit.png" alt="edit entry" class="edit">
+                            <img src="../static/img/trash.png" alt="trash" class="trash">
                         </div>
                     </div>
                     <div class="entry">
                         <div class="content">
                             <p class="title">#2</p>
-                            <p>#2 content hereeeeeeeee</p>
+                            <p>#3 content hereeeeeeeee</p>
                         </div>
                         <div class="controls">
-                            <img src="../static/img/edit.png" alt="edit entry">
-                            <img src="../static/img/trash.png" alt="trash">
+                            <img src="../static/img/edit.png" alt="edit entry" class="edit">
+                            <img src="../static/img/trash.png" alt="trash" class="trash">
                         </div>
                     </div>
                 </div>
