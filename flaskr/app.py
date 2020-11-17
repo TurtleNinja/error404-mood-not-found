@@ -26,7 +26,7 @@ def mood_rate():
     return render_template("moodrating.html")
 
 @app.route('/mood_randomizer_home')
-def mood_randomizer():
+def mood_randomizer_home():
     return render_template("moodrandhome.html")
 
 @app.route('/mood_randomizer_laugh')
