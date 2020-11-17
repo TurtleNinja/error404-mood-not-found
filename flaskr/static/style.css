@@ -1,0 +1,57 @@
+html, body {
+    background-image: url("img/bg.png");
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 10px 10px;
+    font-family: 'Red Hat Display', sans-serif !important;
+}
+#nav-bar {
+    display: flex;
+    margin-bottom: 15px;
+}
+#nav-bar a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Red Hat Display', sans-serif;
+    /* margin: 5px 30px; */
+    margin: 0 2vw;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+}
+.left {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.right {
+    display: inline;
+    float: right;
+    text-align: right;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 450px) {
+    html, body {
+        background-image: url("img/bg.png");
+        background-attachment: fixed;
+        background-size: cover;
+        padding: 5px 5px;
+        font-family: 'Red Hat Display', sans-serif !important;
+    }
+    #nav-bar a {
+        margin: 1vw 3vw;
+    }
+    .left {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .right {
+        flex: 3;
+        display: inline;
+        float: right;
+        text-align: right;
+        margin: auto;
+    }

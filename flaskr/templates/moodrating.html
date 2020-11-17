@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block stylesheet %}
+    <link href="../static/style.css" rel="stylesheet">
     <link href="../static/moodrating.css" rel="stylesheet">
-    <link href="../static/mood.css" rel="stylesheet">
 {% endblock %}
 
 
@@ -11,45 +11,38 @@
 {% endblock %}
 
 {% block content %}
-    <div class="navbar">
-        <div class="left">
-            <a href="">MoodTracker</a>
-            <a href="">MoodRandomizer</a>
-            <a href="">JoyBot</a>
-        </div>
-        <div class="right">
-            <a href="">LogIn</a>
-        </div>
-    </div>
 
     <h3>What would you rate your mood today?</h3>
-    <div class="space"></div>
-    <div class="choose_mood">
-        <div class="mood_emoji">
-            <img src="../static/img/sad.png" alt="sad">
-            <img src="../static/img/neutral.png" alt="neutral">
-            <img src="../static/img/happy.png" alt="happy">
+    <!-- <div class="space"></div> -->
+    <form action="/moodtracker.html" method="post">
+        <div class="choose_mood">
+            <div class="mood_emoji">
+                <img src="../static/img/sad.png" alt="sad">
+                <img src="../static/img/neutral.png" alt="neutral">
+                <img src="../static/img/happy.png" alt="happy">
+            </div>
+            <div class="tickmarks">
+                <p>|</p>
+                <p>|</p>
+                <p>|</p>
+                <p>|</p>
+                <p>|</p>
+            </div>
+            <input type="range" max="5" min="1" value="3" class="rate" step="1" name="rating">
         </div>
-        <div class="tickmarks">
-            <p>|</p>
-            <p>|</p>
-            <p>|</p>
-            <p>|</p>
-            <p>|</p>
+
+        <br>
+
+        <div class="entrydetails">
+            <div class="notes">
+                <p>Notes</p>
+                <textarea rows="17" cols="50" name="entrytext"></textarea>
+            </div>
         </div>
-        <input type="range" max="5" min="1" value="3" class="rate" step="1" oninput="moodupdated(this.value)">
-    </div>
 
-    <br>
-
-    <div class="entrydetails">
-        <div class="notes">
-            <p>Notes</p>
-            <textarea rows="15" cols="50"></textarea>
+        <div class="save_btn">
+            <!-- <input type="submit" name="submit" value="Save"> -->
+            <button type="submit">Save</button>
         </div>
-    </div>
-
-    <div class="save_btn">
-        <button>Save</button>
-    </div>
+    </form>
 {% endblock %}

@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
     background-image: url("img/bg.png");
     background-attachment: fixed;
     background-size: cover;
@@ -16,7 +16,6 @@ body {
     text-decoration: none;
     display: inline-block;
     font-family: 'Red Hat Display', sans-serif;
-    /* margin: 5px 30px; */
     margin: 1vw 2vmax;
     vertical-align: middle;
     justify-content: center;
@@ -32,7 +31,7 @@ body {
     float: right;
     text-align: right;
     margin: 0 auto;
-}
+} */
 
 .datecal {
     text-align: center;
@@ -102,7 +101,8 @@ body {
 }
 .wrapper {
     overflow-y: scroll;
-    height: 35vh;
+    height: 20vh;
+    height: 250px;
     border-radius: 15px;
 }
 .grid {
@@ -123,12 +123,15 @@ body {
 .content {
     flex: 4;
     margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .content p {
     margin: 5px;
 }
 .controls {
-    flex: 2;
+    /* flex: 2; */
     margin: auto;
     text-align: right;
 }
@@ -136,6 +139,9 @@ body {
     padding: 0 10px;
     width: 23px;
     margin: auto;
+}
+.edit, .trash, .add {
+    cursor: pointer;
 }
 .title {
     font-size: 18px;
@@ -152,7 +158,7 @@ body {
 
 
 @media only screen and (max-width: 450px) {
-    .navbar a {
+    /* .navbar a {
         margin: 0.5vw 3vw;
     }
     .left {
@@ -166,7 +172,7 @@ body {
         float: right;
         text-align: right;
         margin: auto;
-    }
+    } */
 
     .container {
         flex-direction: column;
@@ -177,7 +183,7 @@ body {
         display: block;
     }
     .userpic {
-        width: 60%;
+        width: 50%;
     }
     .profile img {
         width: 70%;
@@ -185,5 +191,13 @@ body {
     }
     .journal {
         width: 100%;
+    }
+    .wrapper {
+        height: 40vmax;
+    }
+    .controls img {
+        padding: 0 8px;
+        width: 21px;
+        margin: auto;
     }
 }
