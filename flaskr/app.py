@@ -1,6 +1,5 @@
 from flask import Flask, render_template
-
-app = Flask(__name__)
+from flaskr import app
 
 
 @app.route('/')
@@ -16,9 +15,9 @@ def login():
 def signup():
     return render_template("SignUpPage.html")
 
-@app.route('/mood_randomizer')
+@app.route('/mood_tracker')
 def mood_randomizer():
-    return render_template("mood.html")
+    return render_template("moodtracker.html")
 
 @app.route('/mood_rating')
 def mood_rate():
