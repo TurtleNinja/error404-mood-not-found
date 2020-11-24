@@ -18,9 +18,9 @@
     <body>
         <section id="nav-bar">
             <div class="left">
-                <a href="">moodtracker</a>
-                <a href="">moodrandomizer</a>
-                <a href="">joybot</a>
+                <a href="{{ url_for('mood_tracker') }}">moodtracker</a>
+                <a href="{{ url_for('/mood_randomizer_home') }}">moodrandomizer</a>
+                <a href="{{ url_for('/chat') }}">joybot</a>
             </div>
             <div class="right">
                 <a href="">login</a>
