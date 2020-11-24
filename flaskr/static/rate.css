@@ -1,12 +1,37 @@
+div.navbar-nav {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+div.navbar-nav a {
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    margin: 1vw 2vmax;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+}
+
+div.right {
+    display: inline;
+    float: right;
+    text-align: right;
+    margin: 0 auto;
+    margin-right: 0;
+}
+
 html {
     background-image: url("img/bg.png");
     background-attachment: fixed;
     background-size: cover;
 }
+
 body {
     padding: 10px 2vw;
     font-family: 'Red Hat Display', sans-serif !important;
 }
+
 h3 {
     text-align: center;
     color: white;
@@ -17,12 +42,15 @@ h3 {
     margin-top: 10px;
 }
 
+
 /*mood slider*/
+
 .choose_mood {
     width: 60%;
     margin: auto;
     text-align: center;
 }
+
 .mood_emoji {
     display: flex;
     width: 100%;
@@ -30,12 +58,14 @@ h3 {
     justify-content: space-between;
     margin-bottom: -15px;
 }
+
 .mood_emoji img {
     position: relative;
     justify-content: center;
     margin: auto;
     width: 30px;
 }
+
 .tickmarks {
     display: flex;
     width: 68%;
@@ -56,9 +86,11 @@ h3 {
     outline: none;
     opacity: 0.9;
 }
+
 .rate:hover {
     opacity: 1;
 }
+
 .rate::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 20px;
@@ -67,14 +99,18 @@ h3 {
     background-color: #C4C4C4;
 }
 
+
 /*journal entry*/
+
 .entrydetails {
     display: flex;
     width: 90%;
     margin: auto;
     margin-bottom: 2vh;
 }
-.notes, .drawing {
+
+.notes,
+.drawing {
     flex: 1;
     background: linear-gradient(180deg, #FFFFFF 30.73%, #C4E2FF 100%);
     border: 1px solid #000000;
@@ -85,26 +121,32 @@ h3 {
     padding-bottom: 10px;
     background-color: red;
 }
+
 .notes:first-child {
     margin-right: 3vw;
 }
+
 .notes textarea {
     width: 90%;
     resize: none;
     margin-bottom: 3%;
 }
+
 .canvas-container {
     text-align: center;
     margin: auto;
 }
+
 #draw {
     border: 1px solid black;
     justify-content: center;
     margin: auto;
 }
+
 .save_btn {
     text-align: center;
 }
+
 button {
     padding: 7px 3vw;
     border-radius: 10px;
@@ -114,7 +156,6 @@ button {
     color: white;
     font-size: 20px;
 }
-
 
 @media only screen and (max-width: 700px) {
     .choose_mood {
@@ -131,7 +172,6 @@ button {
     .rate {
         width: 70%;
     }
-
     .entrydetails {
         flex-direction: column;
     }

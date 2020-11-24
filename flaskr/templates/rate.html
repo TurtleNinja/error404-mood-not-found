@@ -1,100 +1,104 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="../static/rate.css" rel="stylesheet" type="text/css">
-        <link href="../static/mood.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min.js'></script>
+<head>
+    <link href="../static/rate.css" rel="stylesheet" type="text/css">
+    <link href="../static/mood.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script>
-            window.onload=function(){
-                var canvas = new fabric.Canvas('draw');
-                canvas.isDrawingMode = true;
-                canvas.freeDrawingBrush.width = 5;
-                canvas.freeDrawingBrush.color = "#ff0000";
-                // window.addEventListener('resize', resizeCanvas, false);
+    <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min.js'></script>
 
-                //     window.addEventListener('resize', resizeCanvas, false);
-                //     function resizeCanvas() {
-                //         const outerCanvasContainer = document.getElementsByClassName('drawing');
-                //         const ratio = canvas.getWidth();
-                //         const containerWidth = outerCanvasContainer.clientWidth;
-                //         const containerHeight = outerCanvasContainer.clientHeight;
+    <script>
+        window.onload = function() {
+            var canvas = new fabric.Canvas('draw');
+            canvas.isDrawingMode = true;
+            canvas.freeDrawingBrush.width = 5;
+            canvas.freeDrawingBrush.color = "#ff0000";
+            // window.addEventListener('resize', resizeCanvas, false);
 
-                //         const scale = containerWidth / containerHeight;
-                //         const zoom = canvas.getZoom() * scale;
-                //         canvas.setDimensions({
-                //             width: containerWidth,
-                //             height: containerWidth/ratio
-                //         });
-                //         canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
-                // }
-            }
+            //     window.addEventListener('resize', resizeCanvas, false);
+            //     function resizeCanvas() {
+            //         const outerCanvasContainer = document.getElementsByClassName('drawing');
+            //         const ratio = canvas.getWidth();
+            //         const containerWidth = outerCanvasContainer.clientWidth;
+            //         const containerHeight = outerCanvasContainer.clientHeight;
 
-                // function resizeCanvas() {
-                // canvas.setHeight(window.innerHeight);
-                // canvas.setWidth(window.innerWidth);
-                // canvas = $('.draw');
-                // canvas.setHeight($('.drawing').height() - 100);
-                // console.log(canvas.setHeight($('.drawing').height()));
-                // canvas.setWidth($('.drawing').width());
-                // console.log(canvas.setWidth($('.drawing').width()));
-                // }
-                // resizeCanvas();
+            //         const scale = containerWidth / containerHeight;
+            //         const zoom = canvas.getZoom() * scale;
+            //         canvas.setDimensions({
+            //             width: containerWidth,
+            //             height: containerWidth/ratio
+            //         });
+            //         canvas.setViewportTransform([zoom, 0, 0, zoom, 0, 0]);
+            // }
+        }
 
-            function moodupdated(value) {
-                console.log(value);
-            }
-        </script>
-    </head>
-    <body>
-        <div class="navbar">
-            <div class="left">
-                <a href="">MoodTracker</a>
-                <a href="">MoodRandomizer</a>
-                <a href="">JoyBot</a>
-            </div>
-            <div class="right">
-                <a href="">LogIn</a>
-            </div>
-        </div>
+        // function resizeCanvas() {
+        // canvas.setHeight(window.innerHeight);
+        // canvas.setWidth(window.innerWidth);
+        // canvas = $('.draw');
+        // canvas.setHeight($('.drawing').height() - 100);
+        // console.log(canvas.setHeight($('.drawing').height()));
+        // canvas.setWidth($('.drawing').width());
+        // console.log(canvas.setWidth($('.drawing').width()));
+        // }
+        // resizeCanvas();
 
-        <h3>What would you rate your mood today?</h3>
-        <div class="space"></div>
-        <div class="choose_mood">
-            <div class="mood_emoji">
-                <img src="../static/img/sad.png" alt="sad">
-                <img src="../static/img/neutral.png" alt="neutral">
-                <img src="../static/img/happy.png" alt="happy">
-            </div>
-            <div class="tickmarks">
-                <p>|</p>
-                <p>|</p>
-                <p>|</p>
-                <p>|</p>
-                <p>|</p>
-            </div>
-            <input type="range" max="5" min="1" value="3" class="rate" step="1" oninput="moodupdated(this.value)">
-        </div>
+        function moodupdated(value) {
+            console.log(value);
+        }
+    </script>
+</head>
 
-        <br>
-
-        <div class="entrydetails">
-            <div class="notes">
-                <p>Notes</p>
-                <textarea rows="15" cols="50"></textarea>
-            </div>
-            <div class="drawing">
-                <p>Drawing Space</p>
-                <canvas id="draw" width="300px" height="230pxs"></canvas>
+<body>
+    <nav class="nav navbar-default">
+        <div class="nav navbar-nav left">
+            <a href=""><b>mood tracker</b></a>
+            <a href=""><b>mood randomizer</b></a>
+            <a href=""><b>JoyBot</b></a>
+            <div class="nav navbar-nav right">
+                <a href="">log in</a>
             </div>
         </div>
+    </nav>
 
-        <div class="save_btn">
-            <button>Save</button>
+
+    <h3>What would you rate your mood today?</h3>
+    <div class="space"></div>
+    <div class="choose_mood">
+        <div class="mood_emoji">
+            <img src="../static/img/sad.png" alt="sad">
+            <img src="../static/img/neutral.png" alt="neutral">
+            <img src="../static/img/happy.png" alt="happy">
         </div>
+        <div class="tickmarks">
+            <p>|</p>
+            <p>|</p>
+            <p>|</p>
+            <p>|</p>
+            <p>|</p>
+        </div>
+        <input type="range" max="5" min="1" value="3" class="rate" step="1" oninput="moodupdated(this.value)">
+    </div>
 
-    </body>
+    <br>
+
+    <div class="entrydetails">
+        <div class="notes">
+            <p>Notes</p>
+            <textarea rows="15" cols="50"></textarea>
+        </div>
+        <div class="drawing">
+            <p>Drawing Space</p>
+            <canvas id="draw" width="300px" height="230pxs"></canvas>
+        </div>
+    </div>
+
+    <div class="save_btn">
+        <button>Save</button>
+    </div>
+
+</body>
+
 </html>
