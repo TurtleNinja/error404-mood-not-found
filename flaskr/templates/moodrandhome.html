@@ -7,9 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/scripts/linking.js"></script>
+
     <title>Mood Randomizer</title>
-    
-  </head>  
+
+  </head>
   <body>
 
     <nav class="nav navbar-default">
@@ -28,15 +31,15 @@
     <h2>
         I want to feel...
         <select class="selectpicker">
-        <option>Relaxed</option>
-        <option>Amused</option>
-        <option>Motivated</option>
+        <option value="relax">Relaxed</option>
+        <option value="amused">Amused</option>
+        <option value="motivated">Motivated</option>
       </select>
     </h2>
 
 
     <div style="text-align:center;">
-        <button class="hi" type="button" onclick="alert('Hello world!')">Go!</button>
+        <button class="rand_submit hi" type="submit">Go!</button>
     </div>
 
 
