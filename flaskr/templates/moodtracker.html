@@ -3,8 +3,6 @@
 {% block stylesheet %}
     <link href="../static/style.css" rel="stylesheet">
     <link href="../static/mood.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../static/scripts/tracker.js"></script>
 {% endblock %}
 
 
@@ -29,41 +27,23 @@
 
         <div class="journal">
             <div class="header">
-                <span><p>Journal Entries</p>
-                <img src="../static/img/plus.png" alt="add entry" class="add"></span>
+                <span><p>Journal Entries</p></span>
+                <img src="../static/img/plus.png" class="add_entry" alt="add entry">
             </div>
             <div class="wrapper">
                 <div class="grid">
+                {% for entry in entryData %}
                     <div class="entry">
                         <div class="content">
-                            <p class="title">Entry Title</p>
-                            <p>Entry Content</p>
+                            <p class="title">Entry from  {{ entry.date.strftime("%x") }}</p>
+                            <p>{{ entry.journal }}</p>
                         </div>
                         <div class="controls">
-                            <img src="../static/img/edit.png" alt="edit entry" class="edit">
+                            <img src="../static/img/edit.png" alt="edit entry" class="edit_entry">
                             <img src="../static/img/trash.png" alt="trash" class="trash">
                         </div>
                     </div>
-                    <!-- <div class="entry">
-                        <div class="content">
-                            <p class="title">#2</p>
-                            <p>#2 content hereeeeeeeee</p>
-                        </div>
-                        <div class="controls">
-                            <img src="../static/img/edit.png" alt="edit entry" class="edit">
-                            <img src="../static/img/trash.png" alt="trash" class="trash">
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="content">
-                            <p class="title">#2</p>
-                            <p>#3 content hereeeeeeeee</p>
-                        </div>
-                        <div class="controls">
-                            <img src="../static/img/edit.png" alt="edit entry" class="edit">
-                            <img src="../static/img/trash.png" alt="trash" class="trash">
-                        </div>
-                    </div> -->
+                {% endfor %}
                 </div>
             </div>
         </div>

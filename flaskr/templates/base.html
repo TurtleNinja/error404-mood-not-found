@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../static/scripts/linking.js"></script>
         <!-- to fill in stylesheets used -->
         {% block stylesheet %}
         {% endblock %}
@@ -19,8 +21,8 @@
         <section id="nav-bar">
             <div class="left">
                 <a href="{{ url_for('mood_tracker') }}">moodtracker</a>
-                <a href="{{ url_for('/mood_randomizer_home') }}">moodrandomizer</a>
-                <a href="{{ url_for('/chat') }}">joybot</a>
+                <a href="{{ url_for('mood_randomizer_home') }}">moodrandomizer</a>
+                <a href="{{ url_for('chat') }}">joybot</a>
             </div>
             <div class="right">
                 <a href="">login</a>

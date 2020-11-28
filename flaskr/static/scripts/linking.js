@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    $('.edit').click(function(){
+    $('.edit_entry').click(function(){
         window.location.href = '/mood_rating';
     });
-    $('.add').click(function(){
+    $('.add_entry').click(function(){
         window.location.href = '/mood_rating';
     });
 });

@@ -72,7 +72,7 @@
 }
 .header p {
     /*calculation to make it centered. full width - width of img size and padding*/
-    width: calc(100% - 45px);
+    width: calc(100% - 90px);
     margin-right: -45px;
 }
 .wrapper {
@@ -116,12 +116,12 @@
     width: 23px;
     margin: auto;
 }
-.edit, .trash, .add {
+.edit_entry, .trash, .header .add_entry {
     cursor: pointer;
 }
 .title {
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 900;
     margin: 0;
 }
 
