@@ -36,6 +36,27 @@ def mood_rate():
         return redirect(url_for('mood_tracker'))
     return render_template("moodrating.html")
 
+@app.route('/mood_rating/<int:id>', methods=['POST', 'GET'])
+def edit(id):
+    # https://www.codementor.io/@garethdwyer/building-a-crud-application-with-flask-and-sqlalchemy-dm3wv7yu2
+    getEntry = Entry.query.get_or_404(id)
+    print("retrieved Entry: ", getEntry)
+    if request.method == 'POST':
+        getEntry.mood_rate = request.form['rating']
+        getEntry.journal = request.form['entrytext']
+
+        db.session.commit()
+        return redirect(url_for('mood_tracker'))
+    return render_template("moodrating_edit.html", getEntry=getEntry)
+
+@app.route('/delete/<int:id>', methods=['POST', 'GET'])
+def delete(id):
+    deleteEntry = Entry.query.get_or_404(id)
+    print("retrieved Entry: ", deleteEntry)
+    db.session.delete(deleteEntry)
+    db.session.commit()
+    return redirect(url_for('mood_tracker'))
+
 @app.route('/mood_tracker', methods=['POST', 'GET'])
 def mood_tracker():
     print("successful")

@@ -39,8 +39,8 @@
                             <p>{{ entry.journal }}</p>
                         </div>
                         <div class="controls">
-                            <img src="../static/img/edit.png" alt="edit entry" class="edit_entry">
-                            <img src="../static/img/trash.png" alt="trash" class="trash">
+                            <a href="/mood_rating/{{entry.id}}"><img src="../static/img/edit.png" alt="edit entry" class="edit_entry"></a>
+                            <a href="/delete/{{entry.id}}"><img src="../static/img/trash.png" alt="trash" class="trash"></a>
                         </div>
                     </div>
                 {% endfor %}

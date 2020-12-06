@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+    <link href="../static/style.css" rel="stylesheet">
+    <link href="../static/moodrating.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block title %}
+    JoyBot | MoodRating
+{% endblock %}
+
+{% block content %}
+
+    <h3>What would you rate your mood today?</h3>
+    <!-- <div class="space"></div> -->
+    <form action="#" method="post">
+        <div class="choose_mood">
+            <div class="mood_emoji">
+                <img src="../static/img/sad.png" alt="sad">
+                <img src="../static/img/neutral.png" alt="neutral">
+                <img src="../static/img/happy.png" alt="happy">
+            </div>
+            <div class="tickmarks">
+                <p>|</p>
+                <p>|</p>
+                <p>|</p>
+                <p>|</p>
+                <p>|</p>
+            </div>
+            <input type="range" max="5" min="1" value="{{getEntry.mood_rate}}" class="rate" step="1" name="rating">
+        </div>
+
+        <br>
+
+        <div class="entrydetails">
+            <div class="notes">
+                <p>Notes</p>
+                <textarea rows="17" cols="50" name="entrytext">{{ getEntry.journal }}</textarea>
+            </div>
+        </div>
+
+        <div class="save_btn">
+            <!-- <input type="submit" name="submit" value="Save"> -->
+            <button type="submit">Save</button>
+        </div>
+    </form>
+{% endblock %}
