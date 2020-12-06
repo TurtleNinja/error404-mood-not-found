@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flaskr import app
-from flaskr.models import Entry
+from flaskr.models import Entry, User
+from flaskr.forms import SignUpForm, LoginForm
 from flaskr import db
 
 @app.route('/')
@@ -12,9 +13,13 @@ def index():
 def login():
     return render_template("LogInPage.html")
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template("SignUpPage.html")
+    form = SignUpForm()
+    if form.validate_on_submit():
+        return redirect(url_for('index'))
+    else:
+        return render_template("SignUpPage.html", title="Sign Up", form=form)
 
 @app.route('/mood_rating', methods=['POST','GET'])
 def mood_rate():

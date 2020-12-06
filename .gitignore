@@ -5,3 +5,4 @@ venv
 ../.DS_Store
 ../static/.DS_Store
 __pycache__
+.vscode

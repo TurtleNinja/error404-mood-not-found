@@ -24,9 +24,37 @@
             </div> 
         </nav>
         
-        <div class="center" style="color: #ffffff; background-color: transparent;">
+        <div>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend>Sign Up Now!</legend>
+                    <div>
+                        {{ form.username.label }}
+                        {{ form.username }}
+                    </div>
+                    <div>
+                        {{ form.password.label }}
+                        {{ form.password }}
+                    </div>
+                    <div>
+                        {{ form.confirm_password.label }}
+                        {{ form.confirm_password }}
+                    </div>
+                </fieldset>
+                <div>
+                    {{ form.submit }}
+                </div>
+                
+            </form>
+        </div>
+
+
+        <!--<div class="center" style="color: #ffffff; background-color: transparent;">
             <h1>Sign Up</h1>
         </div>
+
+
         <div class="center"> 
             <form>
                 <input type="text" id="Username" name="Username" placeholder="Username">
@@ -44,6 +72,6 @@
         </div>
        <div class="center" style="background-color:#A09EFF; width: 450px; line-height: 100px; margin-top: 80px">
            <a href="">Sign Up</a>
-       </div>
+       </div>   -->
     </body>
 </html>
