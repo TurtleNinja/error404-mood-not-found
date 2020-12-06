@@ -13,7 +13,7 @@
     </head>
 
     <body>
-         <nav class="nav navbar-default">
+         <!-- <nav class="nav navbar-default">
             <div class="nav navbar-nav left">
                 <a href=""><b>MoodTracker</b></a>
                 <a href=""><b>MoodRandomizer</b></a>
@@ -21,31 +21,35 @@
                 <div class="nav navbar-nav right">
                     <a href="">LogIn</a>
                 </div>
-            </div> 
-        </nav>
-        
-        <div>
+            </div>
+        </nav> -->
+
+        <div class="signup_container">
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
+                <br>
                 <fieldset>
                     <legend>Sign Up Now!</legend>
+                    <br>
                     <div>
                         {{ form.username.label }}
-                        {{ form.username }}
+                        {{ form.username(class="input", placeholder="Enter Username") }}
                     </div>
                     <div>
                         {{ form.password.label }}
-                        {{ form.password }}
+                        {{ form.password(class_="input", placeholder="Enter Password") }}
                     </div>
                     <div>
                         {{ form.confirm_password.label }}
-                        {{ form.confirm_password }}
+                        {{ form.confirm_password(class_="input", placeholder="Re-Enter Password") }}
                     </div>
                 </fieldset>
-                <div>
-                    {{ form.submit }}
+                <br>
+                <div class="center">
+                    {{ form.submit(class_="black_btn") }}
                 </div>
-                
+                <p class="indent"><a>Log In</a></p>
+                <br>
             </form>
         </div>
 
@@ -55,17 +59,17 @@
         </div>
 
 
-        <div class="center"> 
+        <div class="center">
             <form>
                 <input type="text" id="Username" name="Username" placeholder="Username">
             </form>
         </div>
-        <div class="center"> 
+        <div class="center">
             <form>
                 <input type="password" id="pwd" name="pwd" placeholder="Password">
             </form>
         </div>
-        <div class="center"> 
+        <div class="center">
             <form>
                 <input type="password" id="pwd" name="pwd" placeholder="Confirm Password">
             </form>
