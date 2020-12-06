@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object(Config)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///entries.sqlite3'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///entries.sqlite3'
 
 db = SQLAlchemy(app)
 # migrate = Migrate(app, db)
