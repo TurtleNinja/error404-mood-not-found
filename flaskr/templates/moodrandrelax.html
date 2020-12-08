@@ -1,39 +1,32 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
+{% block stylesheet %}
+    <link href="../static/style.css" rel="stylesheet">
     <link href="../static/MoodRandomizerLaugh.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+{% endblock %}
 
-<body>
-    <nav class="nav navbar-default">
-        <div class="nav navbar-nav left">
-            <a href=""><b>mood tracker</b></a>
-            <a href=""><b>mood randomizer</b></a>
-            <a href=""><b>JoyBot</b></a>
-            <div class="nav navbar-nav right">
-                <a href="">log in</a>
-            </div>
-        </div>
-    </nav>
 
-    <br>
-    <br>
-    <h1>Relaxed</h1>
+{% block title %}
+    JoyBot | MoodRandomizer
+{% endblock %}
 
-    <!-- <div class = "" -->
+{% block content %}
 
-    <h2>Sit back, relax and enjoy this!</h2>
-    <!-- <br> -->
-    <iframe width="600" height="315" src="https://www.youtube.com/embed/F4we73GHH9k">
-    </iframe>
-    <br>
-    <br>
+    <div class="center">
 
-    <button class="hi" type="button">Show me another!</button>
+        <h1>Relaxed</h1>
 
-</body>
+        <!-- <div class = "" -->
 
-</html>
+        <h2>Sit back, relax and enjoy this!</h2>
+        <!-- <br> -->
+        <iframe width="600" height="315" src="https://www.youtube.com/embed/F4we73GHH9k">
+        </iframe>
+        <br>
+        <br>
+
+        <button class="hi" type="button">Show me another!</button>
+
+    </div>
+
+{% endblock %}

@@ -68,7 +68,7 @@ def mood_tracker():
 def mood_randomizer_home():
     return render_template("moodrandhome.html")
 
-@app.route('/mood_randomizer_laugh')
+@app.route('/mood_randomizer_amused')
 def mood_randomizer_laugh():
     return render_template("MoodRandomizerLaugh.html")
 

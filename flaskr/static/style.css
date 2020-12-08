@@ -32,6 +32,10 @@ html, body {
     margin: 0 auto;
 }
 
+.center {
+    text-align: center;
+}
+
 @media only screen and (max-width: 450px) {
     html, body {
         background-image: url("img/bg.png");

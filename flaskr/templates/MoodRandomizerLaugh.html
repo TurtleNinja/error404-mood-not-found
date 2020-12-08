@@ -1,39 +1,33 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
+{% block stylesheet %}
+    <link href="../static/style.css" rel="stylesheet">
     <link href="../static/MoodRandomizerLaugh.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+{% endblock %}
 
-<body>
-    <nav class="nav navbar-default">
-        <div class="nav navbar-nav left">
-            <a href=""><b>mood tracker</b></a>
-            <a href=""><b>mood randomizer</b></a>
-            <a href=""><b>JoyBot</b></a>
-            <div class="nav navbar-nav right">
-                <a href="">log in</a>
-            </div>
+
+{% block title %}
+    JoyBot | MoodRandomizer
+{% endblock %}
+
+{% block content %}
+
+    <div class="center">
+
+        <h1>Laugh</h1>
+
+        <!-- <div class = "" -->
+
+        <h2>Here's something that might make you laugh: </h2>
+        <!-- <br> -->
+        <iframe width="600" height="315" src="https://www.youtube.com/embed/LJrvJPz4nM0">
+        </iframe>
+        <br>
+        <br>
+
+        <div style="text-align:center;">
+            <button class="hi" type="button">Show me another!</button>
         </div>
-    </nav>
+    </div>
 
-    <br>
-    <br>
-    <h1>Laugh</h1>
-
-    <!-- <div class = "" -->
-
-    <h2>Here's something that might make you laugh: </h2>
-    <!-- <br> -->
-    <iframe width="600" height="315" src="https://www.youtube.com/embed/LJrvJPz4nM0">
-    </iframe>
-    <br>
-    <br>
-
-    <button class="hi" type="button">Show me another!</button>
-
-</body>
-
-</html>
+{% endblock %}
