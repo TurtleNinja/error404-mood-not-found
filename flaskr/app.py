@@ -26,7 +26,12 @@ def mood_rate():
     if request.method == 'POST':
         rating = request.form['rating']
         journal = request.form['entrytext']
-        new_entry = Entry(mood_rate=rating, journal=journal)
+        print("journal", journal)
+        title = journal.split('\n')[0]
+        entryList = journal.split('\n')[1:]
+        entry = ""
+        entry = entry.join(entryList)
+        new_entry = Entry(mood_rate=rating, title=title, journal=entry)
         print(new_entry)
 
         # add to database
@@ -43,7 +48,13 @@ def edit(id):
     print("retrieved Entry: ", getEntry)
     if request.method == 'POST':
         getEntry.mood_rate = request.form['rating']
-        getEntry.journal = request.form['entrytext']
+
+        # get whole entry and split into 'title' and 'journal'
+        fullEntryText = request.form['entrytext']
+        getEntry.title = fullEntryText.split('\n')[0]
+        entryList = fullEntryText.split('\n')[1:]
+        entry = ""
+        getEntry.journal = entry.join(entryList)
 
         db.session.commit()
         return redirect(url_for('mood_tracker'))

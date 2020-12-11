@@ -31,11 +31,19 @@
                 <img src="../static/img/plus.png" class="add_entry" alt="add entry">
             </div>
             <div class="wrapper">
+              {% for entry in entryData %}
                 <div class="grid">
-                {% for entry in entryData %}
                     <div class="entry">
                         <div class="content">
-                            <p class="title">Entry from  {{ entry.date.strftime("%x") }}</p>
+                            {% if entry.title == "" %}
+                                <p class="title">{{ entry.date.strftime("%x") }} : No title</p>
+                            {% else %}
+                                <p class="title">{{ entry.date.strftime("%x") }} : {{ entry.title }}</p>
+                            {% endif %}
+
+                            {% if entry.journal == "" %}
+                                <p>No entry text</p>
+                            {% endif %}
                             <p>{{ entry.journal }}</p>
                         </div>
                         <div class="controls">
@@ -43,8 +51,8 @@
                             <a href="/delete/{{entry.id}}"><img src="../static/img/trash.png" alt="trash" class="trash"></a>
                         </div>
                     </div>
-                {% endfor %}
                 </div>
+            {% endfor %}
             </div>
         </div>
     </div>
