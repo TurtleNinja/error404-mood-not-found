@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
+{% set active_page = 'moodtracker' %}
+
 {% block stylesheet %}
-    <link href="../static/style.css" rel="stylesheet">
     <link href="../static/mood.css" rel="stylesheet">
 {% endblock %}
 
@@ -12,7 +13,7 @@
 
 {% block content %}
     <div class="datecal">
-        <span><img src="../static/img/calendar.png" alt="cal_icon">&nbsp&nbsp 10/28/20</span>
+        <span><img src="../static/img/calendar.png" alt="cal_icon"><span id="todayDate"></span></span>
     </div>
     <br>
 
@@ -31,8 +32,11 @@
                 <img src="../static/img/plus.png" class="add_entry" alt="add entry">
             </div>
             <div class="wrapper">
-              {% for entry in entryData %}
+              {% if entryData|length == 0 %}
+                  <div style="height: 250px; display: flex; align-items: center; justify-content: center;">No entries created.</div>
+              {% else %}
                 <div class="grid">
+                  {% for entry in entryData %}
                     <div class="entry">
                         <div class="content">
                             {% if entry.title == "" %}
@@ -42,7 +46,7 @@
                             {% endif %}
 
                             {% if entry.journal == "" %}
-                                <p>No entry text</p>
+                                <p style="font-style: italic">No entry text</p>
                             {% endif %}
                             <p>{{ entry.journal }}</p>
                         </div>
@@ -51,8 +55,9 @@
                             <a href="/delete/{{entry.id}}"><img src="../static/img/trash.png" alt="trash" class="trash"></a>
                         </div>
                     </div>
+                  {% endfor %}
+                {% endif %}
                 </div>
-            {% endfor %}
             </div>
         </div>
     </div>
@@ -60,4 +65,17 @@
     <div class="graph">
         matplotlib or plotly?
     </div>
+
+
+    <script>
+      var dateVar = new Date();
+      var year = dateVar.getFullYear();
+      var month = dateVar.getMonth() + 1;
+      var date = dateVar.getDate();
+      const displayedDate = `${month}/${date}/${year}`;
+      console.log(displayedDate);
+      document.getElementById("todayDate").innerHTML = '&nbsp&nbsp' + displayedDate;
+    </script>
+
+
 {% endblock %}

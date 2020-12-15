@@ -20,6 +20,9 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+.active {
+    font-weight: 700;
+}
 .left {
     flex: 1;
     justify-content: center;
