@@ -4,6 +4,8 @@
 
 {% block stylesheet %}
     <link href="../static/mood.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 {% endblock %}
 
 
@@ -63,7 +65,7 @@
     </div>
     <br>
     <div class="graph">
-        matplotlib or plotly?
+        <canvas id="moodchart" ></canvas>
     </div>
 
 
@@ -76,6 +78,7 @@
       console.log(displayedDate);
       document.getElementById("todayDate").innerHTML = '&nbsp&nbsp' + displayedDate;
     </script>
+    <script src="../static/scripts/moodchart.js"></script>
 
 
 {% endblock %}

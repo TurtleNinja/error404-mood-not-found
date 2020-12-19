@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flaskr import app
 from flaskr.models import Entry, User
 from flaskr.forms import SignUpForm, LoginForm
 from flaskr import db
+import json
 
 @app.route('/')
 def index():
@@ -43,7 +44,6 @@ def mood_rate():
 
 @app.route('/mood_rating/<int:id>', methods=['POST', 'GET'])
 def edit(id):
-    # https://www.codementor.io/@garethdwyer/building-a-crud-application-with-flask-and-sqlalchemy-dm3wv7yu2
     getEntry = Entry.query.get_or_404(id)
     print("retrieved Entry: ", getEntry)
     if request.method == 'POST':
@@ -74,6 +74,26 @@ def mood_tracker():
     allEntries = Entry.query.order_by(Entry.date.desc()).all()
     print("Stored Entries ", allEntries)
     return render_template("moodtracker.html", entryData=allEntries)
+
+@app.route('/get_data', methods=['GET'])
+def get_data():
+    allEntries = Entry.query.all()
+    dateList = []
+    rateList = []
+    for data in allEntries:
+        # date for x-axis
+        label = data.date.strftime("%x")
+        dateList.append(label)
+        # rating for y-axis
+        data = data.mood_rate
+        rateList.append(data)
+    # dict = {'Date': dateList,
+    #        'Rating': rateList}
+    # df = pd.DataFrame(dict)
+    # df.groupby([df['Date'].dt.date]).mean()
+    # print(df)
+    return jsonify({'mood':json.dumps({'data':rateList, 'labels':dateList})})
+
 
 @app.route('/mood_randomizer_home')
 def mood_randomizer_home():

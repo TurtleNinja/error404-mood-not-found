@@ -130,6 +130,8 @@
     width: 80%;
     margin: auto;
     display: block;
+    position: relative;
+    height: 30vh;
 }
 
 
