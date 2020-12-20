@@ -24,6 +24,16 @@
             </div>
         </nav> -->
 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div>
+                        {{ message }}
+                    </div>
+                {% endfor%}
+            {% endif %}
+        {% endwith%}
+
         <div class="signup_container">
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
@@ -34,6 +44,10 @@
                     <div>
                         {{ form.username.label }}
                         {{ form.username(class="input", placeholder="Enter Username") }}
+                    </div>
+                    <div>
+                        {{ form.email.label }}
+                        {{ form.email(class="input", placeholder="Enter Email") }}
                     </div>
                     <div>
                         {{ form.password.label }}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flaskr import app
 from flaskr.models import Entry, User
 from flaskr.forms import SignUpForm, LoginForm
@@ -15,11 +15,34 @@ def login():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    form = SignUpForm()
-    if form.validate_on_submit():
-        return redirect(url_for('index'))
-    else:
-        return render_template("SignUpPage.html", title="Sign Up", form=form)
+    form = SignUpForm(request.form)
+    if request.method == "POST":
+        if form.validate_on_submit():
+            username = request.form['username']
+            email = request.form['email']
+            password = request.form['password']
+
+            # check if the username already exists
+            print(User.query.filter_by(username=username).all())
+            if User.query.filter_by(username=username):
+                message = f"Username {username} already exists."
+                flash(message, 'failure')
+            
+            if User.query.filter_by(email=email):
+                message = f"Email {email} already exists."
+                flash(message, 'failure')
+
+            if not message:
+                # create a data instance
+                u = User(username=username)
+                u.set_password(password)
+
+                # add to the database
+                db.session.add(u)
+                db.session.commit()
+                return redirect(url_for('index'))
+        
+    return render_template("SignUpPage.html", title="Sign Up", form=form)
 
 @app.route('/mood_rating', methods=['POST','GET'])
 def mood_rate():

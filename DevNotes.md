@@ -12,3 +12,4 @@ flask
 flask-sqlalchemy
 flask-migrate
 flask-wtf
+email_validator
