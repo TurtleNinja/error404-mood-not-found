@@ -20,12 +20,12 @@ class User(db.Model):
 class Entry(db.Model):
     id =  db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    # author_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     mood_rate = db.Column(db.Integer, nullable=False)
     title = db.Column(db.Text)
     journal = db.Column(db.Text)
 
-    # author = db.relationship('User', backref=db.backref('entries', lazy=True))
+    author = db.relationship('User', backref=db.backref('entries', lazy=True))
 
     def __init__(self, mood_rate, title, journal):
         self.mood_rate = mood_rate
@@ -35,4 +35,4 @@ class Entry(db.Model):
     def __repr__(self):
         return '<Entry {}>'.format(self.journal[:30])
 
-#db.create_all()
+db.create_all()
