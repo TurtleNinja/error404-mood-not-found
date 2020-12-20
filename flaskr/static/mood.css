@@ -121,7 +121,7 @@
 }
 .title {
     font-size: 18px;
-    font-weight: 900;
+    font-weight: 700;
     margin: 0;
 }
 
@@ -130,25 +130,12 @@
     width: 80%;
     margin: auto;
     display: block;
+    position: relative;
+    height: 30vh;
 }
 
 
 @media only screen and (max-width: 450px) {
-    /* .navbar a {
-        margin: 0.5vw 3vw;
-    }
-    .left {
-        flex: 1;
-        justify-content: center;
-        align-items: center;
-    }
-    .right {
-        flex: 3;
-        display: inline;
-        float: right;
-        text-align: right;
-        margin: auto;
-    } */
 
     .container {
         flex-direction: column;

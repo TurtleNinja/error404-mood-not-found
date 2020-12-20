@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
+{% set active_page = 'moodtracker' %}
+
 {% block stylesheet %}
-    <link href="../static/style.css" rel="stylesheet">
     <link href="../static/mood.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 {% endblock %}
 
 
@@ -12,7 +15,7 @@
 
 {% block content %}
     <div class="datecal">
-        <span><img src="../static/img/calendar.png" alt="cal_icon">&nbsp&nbsp 10/28/20</span>
+        <span><img src="../static/img/calendar.png" alt="cal_icon"><span id="todayDate"></span></span>
     </div>
     <br>
 
@@ -31,11 +34,22 @@
                 <img src="../static/img/plus.png" class="add_entry" alt="add entry">
             </div>
             <div class="wrapper">
+              {% if entryData|length == 0 %}
+                  <div style="height: 250px; display: flex; align-items: center; justify-content: center;">No entries created.</div>
+              {% else %}
                 <div class="grid">
-                {% for entry in entryData %}
+                  {% for entry in entryData %}
                     <div class="entry">
                         <div class="content">
-                            <p class="title">Entry from  {{ entry.date.strftime("%x") }}</p>
+                            {% if entry.title == "" %}
+                                <p class="title">{{ entry.date.strftime("%x") }} : No title</p>
+                            {% else %}
+                                <p class="title">{{ entry.date.strftime("%x") }} : {{ entry.title }}</p>
+                            {% endif %}
+
+                            {% if entry.journal == "" %}
+                                <p style="font-style: italic">No entry text</p>
+                            {% endif %}
                             <p>{{ entry.journal }}</p>
                         </div>
                         <div class="controls">
@@ -43,13 +57,28 @@
                             <a href="/delete/{{entry.id}}"><img src="../static/img/trash.png" alt="trash" class="trash"></a>
                         </div>
                     </div>
-                {% endfor %}
+                  {% endfor %}
+                {% endif %}
                 </div>
             </div>
         </div>
     </div>
     <br>
     <div class="graph">
-        matplotlib or plotly?
+        <canvas id="moodchart" ></canvas>
     </div>
+
+
+    <script>
+      var dateVar = new Date();
+      var year = dateVar.getFullYear();
+      var month = dateVar.getMonth() + 1;
+      var date = dateVar.getDate();
+      const displayedDate = `${month}/${date}/${year}`;
+      console.log(displayedDate);
+      document.getElementById("todayDate").innerHTML = '&nbsp&nbsp' + displayedDate;
+    </script>
+    <script src="../static/scripts/moodchart.js"></script>
+
+
 {% endblock %}

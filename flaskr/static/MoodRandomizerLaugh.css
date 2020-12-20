@@ -1,47 +1,11 @@
-html,
-body {
-    background-image: url("img/bg.png");
-    background-attachment: fixed;
-    background-size: cover;
-    font-family: 'Red Hat Display';
-    font-style: normal;
-    font-weight: 400;
-}
-
-div.navbar-nav {
-    display: flex;
-    margin-bottom: 10px;
-}
-
-div.navbar-nav a {
-    color: white;
-    display: inline-block;
-    text-decoration: none;
-    margin: 1vw 2vmax;
-    vertical-align: middle;
-    justify-content: center;
-    align-items: center;
-}
-
-div.right {
-    display: inline;
-    float: right;
-    text-align: right;
-    margin: 0 auto;
-    margin-right: 0;
-}
-
 h1 {
     color: white;
-    text-align: center;
     font-size: 50px;
 }
 
 h2 {
     color: white;
-    /* text-align: center; */
 }
-
 
 /* .dropdown {
     text-align: center;
@@ -51,10 +15,6 @@ h2 {
     width: 120px;
     height: 30px;
 } */
-
-body {
-    text-align: center;
-}
 
 .hi {
     background-color: black;

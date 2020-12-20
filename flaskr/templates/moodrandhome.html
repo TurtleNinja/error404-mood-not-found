@@ -1,48 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
+{% block stylesheet %}
+    <link href="../static/style.css" rel="stylesheet">
     <link href="../static/MoodRandomizerLaugh.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../static/scripts/linking.js"></script>
 
-    <title>Mood Randomizer</title>
+{% block title %}
+    JoyBot | MoodRandomizer
+{% endblock %}
 
-  </head>
-  <body>
+{% block content %}
 
-    <nav class="nav navbar-default">
-        <div class="nav navbar-nav left">
-            <a href=""><b>mood tracker</b></a>
-            <a href=""><b>mood randomizer</b></a>
-            <a href=""><b>JoyBot</b></a>
-            <div class="nav navbar-nav right">
-                <a href="">log in</a>
-            </div>
+    <div class="center">
+
+        <h1>Mood Randomizer</h1>
+
+        <h2>
+            I want to feel...
+            <select class="selectpicker">
+            <option value="relax">Relaxed</option>
+            <option value="amused">Amused</option>
+            <option value="motivated">Motivated</option>
+          </select>
+        </h2>
+
+
+        <div style="text-align:center;">
+            <button class="rand_submit hi" type="submit">Go!</button>
         </div>
-    </nav>
 
-    <h1 style="text-align:center">Mood Randomizer</h1>
-
-    <h2>
-        I want to feel...
-        <select class="selectpicker">
-        <option value="relax">Relaxed</option>
-        <option value="amused">Amused</option>
-        <option value="motivated">Motivated</option>
-      </select>
-    </h2>
-
-
-    <div style="text-align:center;">
-        <button class="rand_submit hi" type="submit">Go!</button>
     </div>
 
-
-</body>
-
-</html>
+{% endblock %}

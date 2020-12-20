@@ -35,12 +35,13 @@
         {% endwith%}
 
         <div class="signup_container">
+            <div style="text-align: right">
+                <img src="../static/img/x.png" class="close_btn">
+            </div>
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
-                <br>
                 <fieldset>
                     <legend>Sign Up Now!</legend>
-                    <br>
                     <div>
                         {{ form.username.label }}
                         {{ form.username(class="input", placeholder="Enter Username") }}
@@ -51,19 +52,20 @@
                     </div>
                     <div>
                         {{ form.password.label }}
-                        {{ form.password(class_="input", placeholder="Enter Password") }}
+                        {{ form.password(class="input", placeholder="Enter Password") }}
                     </div>
                     <div>
                         {{ form.confirm_password.label }}
-                        {{ form.confirm_password(class_="input", placeholder="Re-Enter Password") }}
+                        {{ form.confirm_password(class="input", placeholder="Re-Enter Password") }}
                     </div>
                 </fieldset>
                 <br>
                 <div class="center">
                     {{ form.submit(class_="black_btn") }}
                 </div>
-                <p class="indent"><a>Log In</a></p>
-                <br>
+                <div class="indent">
+                    <p class="italicize">Already have an account?<a href="{{ url_for('login') }}"> Log In</a></p>
+                </div>
             </form>
         </div>
 

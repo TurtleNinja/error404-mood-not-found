@@ -18,18 +18,18 @@ class User(db.Model):
         return '<User {}>'.format(self.username)
 
 class Entry(db.Model):
-    __tablename__ = 'entries'
-
     id =  db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.now())
     # author_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     mood_rate = db.Column(db.Integer, nullable=False)
+    title = db.Column(db.Text)
     journal = db.Column(db.Text)
 
     # author = db.relationship('User', backref=db.backref('entries', lazy=True))
 
-    def __init__(self, mood_rate, journal):
+    def __init__(self, mood_rate, title, journal):
         self.mood_rate = mood_rate
+        self.title = title
         self.journal = journal
 
     def __repr__(self):

@@ -20,6 +20,9 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+.active {
+    font-weight: 700;
+}
 .left {
     flex: 1;
     justify-content: center;
@@ -30,6 +33,10 @@ html, body {
     float: right;
     text-align: right;
     margin: 0 auto;
+}
+
+.center {
+    text-align: center;
 }
 
 @media only screen and (max-width: 450px) {

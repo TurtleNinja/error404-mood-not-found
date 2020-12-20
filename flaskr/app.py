@@ -1,8 +1,10 @@
-from flask import render_template, request, redirect, url_for, flash
+
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
 from flaskr import app
 from flaskr.models import Entry, User
 from flaskr.forms import SignUpForm, LoginForm
 from flaskr import db
+import json
 
 @app.route('/')
 def index():
@@ -49,7 +51,12 @@ def mood_rate():
     if request.method == 'POST':
         rating = request.form['rating']
         journal = request.form['entrytext']
-        new_entry = Entry(mood_rate=rating, journal=journal)
+        print("journal", journal)
+        title = journal.split('\n')[0]
+        entryList = journal.split('\n')[1:]
+        entry = ""
+        entry = entry.join(entryList)
+        new_entry = Entry(mood_rate=rating, title=title, journal=entry)
         print(new_entry)
 
         # add to database
@@ -61,12 +68,17 @@ def mood_rate():
 
 @app.route('/mood_rating/<int:id>', methods=['POST', 'GET'])
 def edit(id):
-    # https://www.codementor.io/@garethdwyer/building-a-crud-application-with-flask-and-sqlalchemy-dm3wv7yu2
     getEntry = Entry.query.get_or_404(id)
     print("retrieved Entry: ", getEntry)
     if request.method == 'POST':
         getEntry.mood_rate = request.form['rating']
-        getEntry.journal = request.form['entrytext']
+
+        # get whole entry and split into 'title' and 'journal'
+        fullEntryText = request.form['entrytext']
+        getEntry.title = fullEntryText.split('\n')[0]
+        entryList = fullEntryText.split('\n')[1:]
+        entry = ""
+        getEntry.journal = entry.join(entryList)
 
         db.session.commit()
         return redirect(url_for('mood_tracker'))
@@ -87,11 +99,31 @@ def mood_tracker():
     print("Stored Entries ", allEntries)
     return render_template("moodtracker.html", entryData=allEntries)
 
+@app.route('/get_data', methods=['GET'])
+def get_data():
+    allEntries = Entry.query.all()
+    dateList = []
+    rateList = []
+    for data in allEntries:
+        # date for x-axis
+        label = data.date.strftime("%x")
+        dateList.append(label)
+        # rating for y-axis
+        data = data.mood_rate
+        rateList.append(data)
+    # dict = {'Date': dateList,
+    #        'Rating': rateList}
+    # df = pd.DataFrame(dict)
+    # df.groupby([df['Date'].dt.date]).mean()
+    # print(df)
+    return jsonify({'mood':json.dumps({'data':rateList, 'labels':dateList})})
+
+
 @app.route('/mood_randomizer_home')
 def mood_randomizer_home():
     return render_template("moodrandhome.html")
 
-@app.route('/mood_randomizer_laugh')
+@app.route('/mood_randomizer_amused')
 def mood_randomizer_laugh():
     return render_template("MoodRandomizerLaugh.html")
 
