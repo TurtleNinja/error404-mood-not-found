@@ -5,6 +5,10 @@ from flaskr.models import Entry, User
 from flaskr.forms import SignUpForm, LoginForm
 from flaskr import db
 import json
+import sqlite3
+
+from flaskr.query_media import get_content
+
 
 @app.route('/')
 def index():
@@ -124,12 +128,28 @@ def mood_randomizer_home():
     return render_template("moodrandhome.html")
 
 @app.route('/mood_randomizer_amused')
-def mood_randomizer_laugh():
-    return render_template("MoodRandomizerLaugh.html")
+def mood_rand_amused():
+    rand_content = get_content('Amused')
+
+
+    for element in rand_content:
+        media_type=element[1]
+        media_link=element[2]
+        media_title=element[3]
+
+    return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
 
 @app.route('/mood_randomizer_relax')
 def mood_randomizer_relax():
-    return render_template("moodrandrelax.html")
+    rand_content = get_content('Relaxed')
+
+
+    for element in rand_content:
+        media_type=element[1]
+        media_link=element[2]
+        media_title=element[3]
+
+    return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
 
 @app.route('/chat')
 def chat():
