@@ -36,13 +36,17 @@
         <div class="entrydetails">
             <div class="notes">
                 <p>Notes</p>
-                <textarea rows="17" cols="50" name="entrytext">{{ getEntry.title }}{{ getEntry.journal }}</textarea>
+                {% if getEntry.title == "\r" %}
+                    <textarea rows="17" cols="40" name="entrytext">{{ getEntry.title }}&#10;{{ getEntry.journal }}</textarea>
+                {% else %}
+                    <textarea rows="17" cols="40" name="entrytext">{{ getEntry.title }}{{ getEntry.journal }}</textarea>
+                {% endif %}
             </div>
         </div>
 
-        <div class="save_btn">
+        <div class="save_btn center">
             <!-- <input type="submit" name="submit" value="Save"> -->
-            <button type="submit">Save</button>
+            <button type="submit" class="black_btn">Save</button>
         </div>
     </form>
 {% endblock %}

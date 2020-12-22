@@ -33,7 +33,7 @@ def signup():
             if User.query.filter_by(username=username):
                 message = f"Username {username} already exists."
                 flash(message, 'failure')
-            
+
             if User.query.filter_by(email=email):
                 message = f"Email {email} already exists."
                 flash(message, 'failure')
@@ -47,7 +47,7 @@ def signup():
                 db.session.add(u)
                 db.session.commit()
                 return redirect(url_for('index'))
-        
+
     return render_template("SignUpPage.html", title="Sign Up", form=form)
 
 @app.route('/mood_rating', methods=['POST','GET'])
@@ -55,13 +55,15 @@ def mood_rate():
     if request.method == 'POST':
         rating = request.form['rating']
         journal = request.form['entrytext']
-        print("journal", journal)
+        # print("journal", journal)
+        print("split text", journal.split('\n'))
         title = journal.split('\n')[0]
         entryList = journal.split('\n')[1:]
         entry = ""
         entry = entry.join(entryList)
         new_entry = Entry(mood_rate=rating, title=title, journal=entry)
-        print(new_entry)
+        print("title", type(new_entry.title))
+        print("entry", new_entry.journal)
 
         # add to database
         db.session.add(new_entry)
@@ -73,7 +75,8 @@ def mood_rate():
 @app.route('/mood_rating/<int:id>', methods=['POST', 'GET'])
 def edit(id):
     getEntry = Entry.query.get_or_404(id)
-    print("retrieved Entry: ", getEntry)
+    print("retrieved Entry: ", getEntry.title)
+    print("retrieved Entry: ", getEntry.journal)
     if request.method == 'POST':
         getEntry.mood_rate = request.form['rating']
 
@@ -99,7 +102,7 @@ def delete(id):
 @app.route('/mood_tracker', methods=['POST', 'GET'])
 def mood_tracker():
     print("successful")
-    allEntries = Entry.query.order_by(Entry.date.desc()).all()
+    allEntries = Entry.query.filter_by(author_id='testing').order_by(Entry.date.desc()).all()
     print("Stored Entries ", allEntries)
     return render_template("moodtracker.html", entryData=allEntries)
 

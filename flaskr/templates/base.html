@@ -22,8 +22,8 @@
         <section id="nav-bar">
             <div class="left">
                 <a href="{{ url_for('mood_tracker') }}" class="{{ 'active' if active_page=='moodtracker' }}">moodtracker</a>
-                <a href="{{ url_for('mood_randomizer_home') }}">moodrandomizer</a>
-                <a href="{{ url_for('chat') }}">joybot</a>
+                <a href="{{ url_for('mood_randomizer_home') }}" class="{{ 'active' if active_page=='moodrandomizer' }}">moodrandomizer</a>
+                <a href="{{ url_for('chat') }}" class="{{ 'active' if active_page=='chat' }}">joybot</a>
             </div>
             <div class="right">
                 <a href="">login</a>

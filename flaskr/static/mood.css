@@ -14,14 +14,13 @@
 
 .container {
     display: flex;
+    padding: 0 5vw;
 }
 
 .profile {
-    flex: 0.5;
+    flex: 0.4;
     display: inline-block;
     margin: auto;
-}
-.profile:first-child {
     margin-right: 3vw;
 }
 .userpic{
@@ -30,7 +29,7 @@
     border-radius: 10px;
     margin: auto;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 7%;
 }
 .profile p {
     color: white;
@@ -48,7 +47,7 @@
 
 .journal {
     background-color: white;
-    flex: 2.5;
+    flex: 2;
     border-radius: 15px 15px 0 0;
 }
 .header {
@@ -95,16 +94,28 @@
 }
 .entry {
     display: flex;
+    min-width: 0;
 }
 .content {
     flex: 4;
     margin-left: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: 0;
 }
 .content p {
     margin: 5px;
+}
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+.entryTextGray {
+    color: #808080;
+}
+.overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .controls {
     /* flex: 2; */
@@ -119,11 +130,6 @@
 .edit_entry, .trash, .header .add_entry {
     cursor: pointer;
 }
-.title {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0;
-}
 
 .graph {
     border: 1px solid white;
@@ -132,6 +138,9 @@
     display: block;
     position: relative;
     height: 30vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -139,6 +148,7 @@
 
     .container {
         flex-direction: column;
+        padding: 0;
     }
     .profile {
         width: 100%;
@@ -162,5 +172,9 @@
         padding: 0 8px;
         width: 21px;
         margin: auto;
+    }
+
+    .graph {
+        width: 100%;
     }
 }

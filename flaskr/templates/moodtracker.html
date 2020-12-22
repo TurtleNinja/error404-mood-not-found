@@ -4,8 +4,8 @@
 
 {% block stylesheet %}
     <link href="../static/mood.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 {% endblock %}
 
 
@@ -41,16 +41,18 @@
                   {% for entry in entryData %}
                     <div class="entry">
                         <div class="content">
-                            {% if entry.title == "" %}
-                                <p class="title">{{ entry.date.strftime("%x") }} : No title</p>
+                            {% if (entry.title == "" or entry.title == '\r') %}
+                                <p class="title overflow">No title</p>
                             {% else %}
-                                <p class="title">{{ entry.date.strftime("%x") }} : {{ entry.title }}</p>
+                                <p class="title overflow">{{ entry.title }}</p>
                             {% endif %}
 
                             {% if entry.journal == "" %}
-                                <p style="font-style: italic">No entry text</p>
+                                <p class="overflow">{{ entry.date.strftime("%x %-I:%M %p") }}<span class="entryTextGray">&nbsp;No entry text</span></p>
+                            {% else %}
+                                <p class="overflow">{{ entry.date.strftime("%x %-I:%M %p") }}<span class="entryTextGray">&nbsp;{{ entry.journal }}</span></p>
                             {% endif %}
-                            <p>{{ entry.journal }}</p>
+
                         </div>
                         <div class="controls">
                             <a href="/mood_rating/{{entry.id}}"><img src="../static/img/edit.png" alt="edit entry" class="edit_entry"></a>

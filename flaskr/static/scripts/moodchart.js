@@ -12,8 +12,39 @@ $(document).ready(function() {
         },
     });
 
+    function changeColor(data){
+        var colors = [];
+        for(i = 0; i < data.length; i++){
+            var color = "";
+
+            if(data[i] == 1) {
+                color = "red";
+            }
+            else if(data[i] == 2) {
+                color = "orange"
+            }
+            else if(data[i] == 3) {
+                color = "blue"
+            }
+            else if(data[i] == 4) {
+                color = "green"
+            }
+            else{
+                color = "yellow"
+            }
+            colors.push(color);
+        }
+        console.log(colors);
+        return colors;
+    }
+
 
     function createLineChart(data, label) {
+        Chart.defaults.global.defaultFontColor = 'black';
+        Chart.defaults.global.defaultFontSize = 15;
+        Chart.defaults.global.defaultFontFamily = "'Red Hat Display', sans-serif'";
+
+        console.log(Chart.defaults.global.defaultFontSize);
         var ctx = document.getElementById('moodchart').getContext('2d');
         var chart = new Chart(ctx, {
             // want to create line chart
@@ -25,7 +56,11 @@ $(document).ready(function() {
                 datasets: [{
                     // label: 'Mood Rating Trend',
                     // backgroundColor: 'rgb(255,182,193)',
-                    borderColor: '#C4E2FF',
+                    pointBackgroundColor: changeColor(data),
+                    pointBorderColor: changeColor(data),
+                    borderColor: 'rgba(0, 0, 0, 0.3)',
+                    borderWidth: 1.5,
+                    fill: false,
                     data: data,
                     lineTension: 0,
                 }]
@@ -38,32 +73,29 @@ $(document).ready(function() {
                 title: {
                     display: true,
                     text: 'Mood Rating Trend',
-                    fontColor: 'white'
                 },
                 labels: {
-                    fontColor: 'white'
                 },
                 scales: {
+                    pointLabels: { fontSize: 100 },
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
                             max: 5,
-                            fontColor: "white",
+                            stepSize: 1,
                         },
                         scaleLabel: {
                             display: true,
                             labelString: "Rating",
-                            fontColor: "white",
                         }
                     }],
                     xAxes: [{
                         ticks: {
-                            fontColor: 'white'
+                            fontSize: 15,
                         },
                         scaleLabel: {
                             display: true,
                             labelString: "Date",
-                            fontColor: "white"
                         }
                     }],
                 },

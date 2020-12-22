@@ -39,6 +39,19 @@ html, body {
     text-align: center;
 }
 
+.black_btn {
+    padding: 7px 3vw;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    background: #200E32;
+    color: white;
+    font-size: 17px;
+}
+.black_btn:hover {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 450px) {
     html, body {
         background-image: url("img/bg.png");

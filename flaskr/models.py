@@ -20,7 +20,7 @@ class User(db.Model):
 class Entry(db.Model):
     id =  db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    author_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False, default="testing")
     mood_rate = db.Column(db.Integer, nullable=False)
     title = db.Column(db.Text)
     journal = db.Column(db.Text)
