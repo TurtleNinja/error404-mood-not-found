@@ -48,10 +48,10 @@ div.right {
   margin: 0 0 10px 0;
 
   position: absolute;
-  width: 889px;
-  height: 146px;
-  left: 598px;
-  top: 596px;
+  width: 30rem;
+  height: 20rem;
+  left: 38rem;
+  top: 20rem;
   
   font-family: 'Red Hat Display';
   font-style: normal;
@@ -77,15 +77,15 @@ div.right {
 /*styling the website description*/
 #web-summary {
   position: absolute;
-  width: 668px;
-  height: 140px;
-  left: 614px;
-  top: 700px;
+  width: 30rem;
+  height: 20rem;
+  left: 38rem;
+  top: 25rem;
 
   font-family: 'Red Hat Display';
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
 
   color: #FFFFFF;
@@ -100,16 +100,9 @@ div.right {
   opacity: 0.9;
 
   position: absolute;
-  width: 316px;
-  height: 614px;
-  left: 200px;
-  /*top: 1014px;*/
-  top: 400px;
-
-
-  /*mix-blend-mode: lighten;*/
-  /*filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));*/
-  /*transform: matrix(1, 0, 0, -1, 0, 0);*/
+  width: 20rem;
+  height: 38rem;
+  left: 15rem;
 }
 
 /*styling the background image of frontPage 2*/
@@ -118,9 +111,8 @@ div.right {
   width: 100%;
   height: 100vh;
   position: relative;
-  /*top: 30px;
-  z-index: 1;*/
   overflow: hidden;
+  line-height: 10rem;
   
   background-image: url("img/homePage2background.png");
   background-color: rgba(33, 9, 182, 0);
@@ -132,18 +124,15 @@ div.right {
 
 /*styling of moodtracker icon on home page 2*/
 #moodtracker-box {
-  margin-bottom: 275px;
   text-align: center;
 }
 
 /*styling of mood randomizer icon on home page 2*/
 #moodrandomizer-box {
-  margin-bottom: 275px;
   text-align: center;
 }
 
 /*styling of JoyBot icon on home page 2*/
 #JoyBot-box {
-  margin-bottom: 275px;
   text-align: center;
 }
