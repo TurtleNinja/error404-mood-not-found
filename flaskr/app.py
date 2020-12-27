@@ -15,20 +15,34 @@ def index():
     return render_template("homePage.html")
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("LogInPage.html")
+    form = LoginForm(request.form)
+    message = None
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            username = request.form['username']
+            password = request.form['password']
+
+            user = User.query.filter_by(username=username).first()
+            if user and user.check_password(password):
+                return redirect(url_for('index'))
+            else:
+                message = "Username or password is incorrect."
+                flash(message, 'failure')
+
+    return render_template("LogInPage.html", title="Log in", form=form, message=message)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = SignUpForm(request.form)
+    message = None
     if request.method == "POST":
         if form.validate_on_submit():
             username = request.form['username']
             email = request.form['email']
             password = request.form['password']
 
-            message = None
             # check if the username already exists
             if User.query.filter_by(username=username).all():
                 message = f"Username {username} already exists."
@@ -49,7 +63,7 @@ def signup():
                 db.session.commit()
                 return redirect(url_for('index'))
 
-    return render_template("SignUpPage.html", title="Sign Up", form=form)
+    return render_template("SignUpPage.html", title="Sign Up", form=form, message=message)
 
 @app.route('/mood_rating', methods=['POST','GET'])
 def mood_rate():
