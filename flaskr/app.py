@@ -154,6 +154,6 @@ def mood_randomizer_relax():
 
     return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
 
-@app.route('/chat')
+@app.route('/chatbot')
 def chat():
-    return render_template("example.html")
+    return render_template("JoyBotPage.html")
