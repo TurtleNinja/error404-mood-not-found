@@ -28,19 +28,20 @@ def signup():
             email = request.form['email']
             password = request.form['password']
 
+            message = None
             # check if the username already exists
-            print(User.query.filter_by(username=username).all())
-            if User.query.filter_by(username=username):
+            if User.query.filter_by(username=username).all():
                 message = f"Username {username} already exists."
                 flash(message, 'failure')
 
-            if User.query.filter_by(email=email):
+            # check if the email already exists
+            if User.query.filter_by(email=email).all():
                 message = f"Email {email} already exists."
                 flash(message, 'failure')
 
             if not message:
                 # create a data instance
-                u = User(username=username)
+                u = User(username=username, email=email)
                 u.set_password(password)
 
                 # add to the database
