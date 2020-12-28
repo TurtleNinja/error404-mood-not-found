@@ -70,15 +70,12 @@ def mood_rate():
     if request.method == 'POST':
         rating = request.form['rating']
         journal = request.form['entrytext']
-        # print("journal", journal)
-        print("split text", journal.split('\n'))
+
         title = journal.split('\n')[0]
         entryList = journal.split('\n')[1:]
         entry = ""
         entry = entry.join(entryList)
         new_entry = Entry(mood_rate=rating, title=title, journal=entry)
-        print("title", type(new_entry.title))
-        print("entry", new_entry.journal)
 
         # add to database
         db.session.add(new_entry)
@@ -109,7 +106,7 @@ def edit(id):
 @app.route('/delete/<int:id>', methods=['POST', 'GET'])
 def delete(id):
     deleteEntry = Entry.query.get_or_404(id)
-    print("retrieved Entry: ", deleteEntry)
+
     db.session.delete(deleteEntry)
     db.session.commit()
     return redirect(url_for('mood_tracker'))
@@ -117,7 +114,7 @@ def delete(id):
 @app.route('/mood_tracker', methods=['POST', 'GET'])
 def mood_tracker():
     print("successful")
-    allEntries = Entry.query.filter_by(author_id='testing').order_by(Entry.date.desc()).all()
+    allEntries = Entry.query.filter_by(author_id = "testing").order_by(Entry.id.desc()).all()
     print("Stored Entries ", allEntries)
     return render_template("moodtracker.html", entryData=allEntries)
 
@@ -133,12 +130,13 @@ def get_data():
         # rating for y-axis
         data = data.mood_rate
         rateList.append(data)
-    # dict = {'Date': dateList,
-    #        'Rating': rateList}
-    # df = pd.DataFrame(dict)
-    # df.groupby([df['Date'].dt.date]).mean()
-    # print(df)
-    return jsonify({'mood':json.dumps({'data':rateList, 'labels':dateList})})
+
+    # get only last 7 recent date and rating to display on chart
+    recentDateList = dateList[-7:]
+    print(recentDateList)
+    recentRatings = rateList[-7:]
+    print(recentRatings)
+    return jsonify({'mood':json.dumps({'data':recentRatings, 'labels':recentDateList})})
 
 
 @app.route('/mood_randomizer_home')

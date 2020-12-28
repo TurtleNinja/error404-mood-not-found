@@ -3,9 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display:400,700&display=swap" rel="stylesheet">
 
-        <link href="../static/LogInPage.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="../static/style.css" rel="stylesheet">
+        <link href="../static/signuplogin.css" rel="stylesheet">
+        <script src="../static/scripts/linking.js"></script>
 
         <title>
             Log In
@@ -22,18 +25,18 @@
                 <div class="nav navbar-nav right">
                     <a href="">LogIn</a>
                 </div>
-            </div> 
+            </div>
          </nav>
 
         <div class="center" style="color: #ffffff; background-color: transparent;">
             <h1>Log In</h1>
         </div>
-        <div class="center"> 
+        <div class="center">
             <form>
                 <input type="text" id="Username" name="Username" placeholder="Username">
             </form>
         </div>
-        <div class="center"> 
+        <div class="center">
             <form>
                 <input type="password" id="pwd" name="pwd" placeholder="Password">
             </form>
@@ -72,6 +75,9 @@
                 <br>
                 <div class="center">
                     {{ form.submit(class_="black_btn") }}
+                </div>
+                <div class="indent">
+                    <p class="italicize">Need an account?<a href="{{ url_for('signup') }}"> Sign Up</a></p>
                 </div>
             </form>
         </div>
