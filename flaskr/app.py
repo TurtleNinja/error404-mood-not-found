@@ -1,11 +1,10 @@
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
-from flaskr import app
+from flask_login import current_user, login_user, logout_user
+from flaskr import app, db
 from flaskr.models import Entry, User
 from flaskr.forms import SignUpForm, LoginForm
-from flaskr import db
-import json
-import sqlite3
+import json, sqlite3
 
 from flaskr.query_media import get_content
 
@@ -17,6 +16,9 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+
     form = LoginForm(request.form)
     message = None
     if request.method == 'POST':
@@ -26,12 +28,20 @@ def login():
 
             user = User.query.filter_by(username=username).first()
             if user and user.check_password(password):
+                login_user(user, remember=True)
                 return redirect(url_for('index'))
             else:
                 message = "Username or password is incorrect."
                 flash(message, 'failure')
+                form.username.data = ""
 
     return render_template("LogInPage.html", title="Log in", form=form, message=message)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
