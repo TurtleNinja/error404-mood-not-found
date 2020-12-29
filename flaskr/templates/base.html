@@ -19,7 +19,7 @@
     </head>
 
     <body>
-        <section id="nav navbar-default">
+        <section id="nav-bar">
             <div class="left">
                 <a href="{{ url_for('mood_tracker') }}" class="{{ 'active' if active_page=='moodtracker' }}">moodtracker</a>
                 <a href="{{ url_for('mood_randomizer_home') }}" class="{{ 'active' if active_page=='moodrandomizer' }}">moodrandomizer</a>
@@ -29,18 +29,14 @@
             {% if current_user.is_anonymous %}
             <div class="right">
                 <a href="{{ url_for('signup') }}">register</a>
-            </div>
-            <div class="right">
                 <a href="{{ url_for('login') }}">login</a>
             </div>
-            {% else %} 
+            {% else %}
             <div class="right">
-                hello <a href="{{ url_for('mood_tracker') }}">{{current_user.username}}!</a>
-            </div>
-            <div class="right">
+                <span>hello&nbsp;</span><a class="navbarlink" href="{{ url_for('mood_tracker') }}">{{current_user.username}}!</a>
                 <a href="{{ url_for('logout') }}">log out</a>
             </div>
-            {% endif %} -->
+            {% endif %}
 
         </section>
 

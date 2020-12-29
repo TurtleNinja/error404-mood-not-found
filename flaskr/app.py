@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from flaskr import app, db
 from flaskr.models import Entry, User
 from flaskr.forms import SignUpForm, LoginForm
@@ -85,7 +85,8 @@ def mood_rate():
         entryList = journal.split('\n')[1:]
         entry = ""
         entry = entry.join(entryList)
-        new_entry = Entry(mood_rate=rating, title=title, journal=entry)
+        print(current_user)
+        new_entry = Entry(mood_rate=rating, title=title, journal=entry, author=current_user)
 
         # add to database
         db.session.add(new_entry)
@@ -124,29 +125,37 @@ def delete(id):
 @app.route('/mood_tracker', methods=['POST', 'GET'])
 def mood_tracker():
     print("successful")
-    allEntries = Entry.query.filter_by(author_id = "testing").order_by(Entry.id.desc()).all()
-    print("Stored Entries ", allEntries)
-    return render_template("moodtracker.html", entryData=allEntries)
+    if current_user.is_authenticated:
+        get_user_id = User.query.filter_by(username=current_user.username).first().id
+        print(get_user_id)
+        allEntries = Entry.query.filter_by(author_id=get_user_id).order_by(Entry.id.desc()).all()
+        return render_template("moodtracker.html", entryData=allEntries)
+    else:
+        return render_template("moodtracker.html")
 
 @app.route('/get_data', methods=['GET'])
 def get_data():
-    allEntries = Entry.query.all()
-    dateList = []
-    rateList = []
-    for data in allEntries:
-        # date for x-axis
-        label = data.date.strftime("%x")
-        dateList.append(label)
-        # rating for y-axis
-        data = data.mood_rate
-        rateList.append(data)
+    if current_user.is_authenticated:
+        get_user_id = User.query.filter_by(username=current_user.username).first().id
+        print(get_user_id)
+        allEntries = Entry.query.filter_by(author_id=get_user_id).all()
+        dateList = []
+        rateList = []
+        for data in allEntries:
+            # date for x-axis
+            label = data.date.strftime("%x")
+            dateList.append(label)
+            # rating for y-axis
+            data = data.mood_rate
+            rateList.append(data)
 
-    # get only last 7 recent date and rating to display on chart
-    recentDateList = dateList[-7:]
-    print(recentDateList)
-    recentRatings = rateList[-7:]
-    print(recentRatings)
-    return jsonify({'mood':json.dumps({'data':recentRatings, 'labels':recentDateList})})
+        # get only last 7 recent date and rating to display on chart
+        recentDateList = dateList[-7:]
+        recentRatings = rateList[-7:]
+        return jsonify({'mood':json.dumps({'data':recentRatings, 'labels':recentDateList})})
+
+    else:
+        return jsonify({'mood':json.dumps({'data':[], 'labels':[]})})
 
 
 @app.route('/mood_randomizer_home')

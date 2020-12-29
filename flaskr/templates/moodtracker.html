@@ -21,21 +21,28 @@
 
     <div class="container">
         <div class="profile">
-            <!-- <img src="profile.png" alt="profile"> -->
             <div class="userpic">
                 <img src="../static/img/user.png" alt="profile pic">
             </div>
-            <p>Name</p>
+            {% if current_user.is_authenticated %}
+            <p>{{current_user.username}}</p>
+            {% endif %}
         </div>
 
         <div class="journal">
             <div class="header">
                 <span><p>Journal Entries</p></span>
+                {% if current_user.is_authenticated %}
                 <img src="../static/img/plus.png" class="add_entry" alt="add entry">
+                {% endif %}
             </div>
             <div class="wrapper">
               {% if entryData|length == 0 %}
-                  <div style="height: 250px; display: flex; align-items: center; justify-content: center;">No entries created.</div>
+                  {% if current_user.is_anonymous %}
+                  <div class="message">Sign in to create an entry.</div>
+                  {% else %}
+                  <div class="message">No entries created.</div>
+                  {% endif %}
               {% else %}
                 <div class="grid">
                   {% for entry in entryData %}
@@ -66,9 +73,12 @@
         </div>
     </div>
     <br>
+    {% if current_user.is_authenticated %}
     <div class="graph">
-        <canvas id="moodchart" ></canvas>
+        <canvas id="moodchart"></canvas>
+        <script src="../static/scripts/moodchart.js"></script>
     </div>
+    {% endif %}
 
 
     <script>
@@ -80,7 +90,6 @@
       console.log(displayedDate);
       document.getElementById("todayDate").innerHTML = '&nbsp&nbsp' + displayedDate;
     </script>
-    <script src="../static/scripts/moodchart.js"></script>
 
 
 {% endblock %}

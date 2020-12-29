@@ -41,10 +41,9 @@ $(document).ready(function() {
 
     function createLineChart(data, label) {
         Chart.defaults.global.defaultFontColor = 'black';
-        Chart.defaults.global.defaultFontSize = 15;
-        Chart.defaults.global.defaultFontFamily = "'Red Hat Display', sans-serif'";
+        Chart.defaults.global.defaultFontSize = 13;
+        Chart.defaults.global.defaultFontFamily = "'Red Hat Display', sans-serif";
 
-        console.log(Chart.defaults.global.defaultFontSize);
         var ctx = document.getElementById('moodchart').getContext('2d');
         var chart = new Chart(ctx, {
             // want to create line chart
@@ -70,9 +69,12 @@ $(document).ready(function() {
             options: {
                 maintainAspectRatio: false,
                 legend: { display: false },
+                animation: {
+                    duration: 0,
+                },
                 title: {
                     display: true,
-                    text: 'Mood Rating Trend',
+                    text: 'Mood Rating Trend (Last 7)',
                 },
                 labels: {
                 },
@@ -90,9 +92,6 @@ $(document).ready(function() {
                         }
                     }],
                     xAxes: [{
-                        ticks: {
-                            fontSize: 15,
-                        },
                         scaleLabel: {
                             display: true,
                             labelString: "Date",
