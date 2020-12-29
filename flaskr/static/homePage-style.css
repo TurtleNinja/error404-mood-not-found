@@ -112,7 +112,7 @@ div.right {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  line-height: 10rem;
+  /*line-height: 10rem;*/
   
   background-image: url("img/homePage2background.png");
   background-color: rgba(33, 9, 182, 0);
@@ -136,3 +136,5 @@ div.right {
 #JoyBot-box {
   text-align: center;
 }
+
+
