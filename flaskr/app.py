@@ -4,6 +4,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from flaskr import app, db
 from flaskr.models import Entry, User
 from flaskr.forms import SignUpForm, LoginForm
+from werkzeug.urls import url_parse
 import json, sqlite3
 
 from flaskr.query_media import get_content
@@ -23,17 +24,18 @@ def login():
     message = None
     if request.method == 'POST':
         if form.validate_on_submit():
-            username = request.form['username']
-            password = request.form['password']
+            user = User.query.filter_by(username=request.form['username']).first()
 
-            user = User.query.filter_by(username=username).first()
-            if user and user.check_password(password):
-                login_user(user, remember=True)
-                return redirect(url_for('index'))
-            else:
+            if not user or not user.check_password(request.form['password']):
                 message = "Username or password is incorrect."
                 flash(message, 'failure')
                 form.username.data = ""
+            else:
+                login_user(user, remember=True)
+                next_page = request.args.get('next')
+                if not next_page or url_parse(next_page).netloc != '':
+                    return redirect(url_for('index'))
+                return redirect(next_page)
 
     return render_template("LogInPage.html", title="Log in", form=form, message=message)
 
@@ -76,6 +78,7 @@ def signup():
     return render_template("SignUpPage.html", title="Sign Up", form=form, message=message)
 
 @app.route('/mood_rating', methods=['POST','GET'])
+@login_required
 def mood_rate():
     if request.method == 'POST':
         rating = request.form['rating']
@@ -96,6 +99,7 @@ def mood_rate():
     return render_template("moodrating.html")
 
 @app.route('/mood_rating/<int:id>', methods=['POST', 'GET'])
+@login_required
 def edit(id):
     getEntry = Entry.query.get_or_404(id)
     print("retrieved Entry: ", getEntry.title)
@@ -115,6 +119,7 @@ def edit(id):
     return render_template("moodrating_edit.html", getEntry=getEntry)
 
 @app.route('/delete/<int:id>', methods=['POST', 'GET'])
+@login_required
 def delete(id):
     deleteEntry = Entry.query.get_or_404(id)
 
@@ -123,6 +128,7 @@ def delete(id):
     return redirect(url_for('mood_tracker'))
 
 @app.route('/mood_tracker', methods=['POST', 'GET'])
+@login_required
 def mood_tracker():
     print("successful")
     if current_user.is_authenticated:
@@ -187,5 +193,6 @@ def mood_randomizer_relax():
     return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
 
 @app.route('/chatbot')
+@login_required
 def chat():
     return render_template("JoyBotPage.html")
