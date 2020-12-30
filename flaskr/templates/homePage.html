@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=3">
+{% block stylesheet %}
+  <!--<meta name="viewport" content="width=device-width, initial-scale=3">-->
+  <link href="../static/homePage-style.css" type="text/css" rel="stylesheet">
+{% endblock %}
+
+    {% block title %}
         <title>JoyBot</title>
-        <!--MAIN CSS FILE BELOW-->
-        <link href="../static/homePage-style.css" type="text/css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-    </head>
+    {% endblock %}
 
-    <body>
+    {% block content %}
         <nav class="nav navbar-default">
           <div class="nav navbar-nav left">
-            <a href=""><b>mood tracker</b></a>
-            <a href=""><b>mood randomizer</b></a>
-            <a href=""><b>JoyBot</b></a>
+            <a href=""><b>moodtracker</b></a>
+            <a href=""><b>moodrandomizer</b></a>
+            <a href=""><b>joybot</b></a>
             <div class="nav navbar-nav right">
               <a href="">log in</a>
             </div>
@@ -58,5 +58,4 @@
             </div>
 
           </section>
-
-    </body>
+    {% endblock %}
