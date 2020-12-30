@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang='en'>
-    <head>
-        <meta charset="utf-8">
+{% set active_page = 'chat' %}
+
+
+    {% block stylesheet %}
+        <!--<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet"> -->
 
         <link href="../static/JoyBotPage.css" rel="stylesheet" type="text/css">
+    {% endblock %}
 
-        <title>
+        {% block title %}
             JoyBot
-        </title>
-    </head>
+        {% endblock %}
 
-    <body>
+    {% block content %}
        <!-- <nav class="nav navbar-default">
            <div class="nav navbar-nav left">
                <a href="{{ url_for('mood_tracker') }}"><b>moodtracker</b></a>
@@ -47,6 +48,5 @@
         <div class="right">
             <img src="../static/img/joychatbot.png" style="position: absolute; width: 410px; height: 600px; left: 1200px; top:240px">
         </div>
+    {% endblock %}
 
-    </body>
-</html>
