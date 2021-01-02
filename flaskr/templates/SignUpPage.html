@@ -9,6 +9,7 @@
       <link href="../static/style.css" rel="stylesheet">
       <link href="../static/signuplogin.css" rel="stylesheet">
       <script src="../static/scripts/linking.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
         <title>
             Sign Up
@@ -27,19 +28,10 @@
             </div>
         </nav> -->
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div>
-                        {{ message }}
-                    </div>
-                {% endfor%}
-            {% endif %}
-        {% endwith%}
-
         <div class="signup_container">
             <div style="text-align: right">
                 <img src="../static/img/x.png" class="close_btn">
+                <!--<i class="fas fa-times"></i>-->
             </div>
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
@@ -62,14 +54,22 @@
                         {{ form.confirm_password(class="input", placeholder="Re-Enter Password") }}
                     </div>
                 </fieldset>
-                <br>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="indent failure">
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <div class="center">
                     {{ form.submit(class_="black_btn") }}
                 </div>
-                <div class="indent">
-                    <p class="italicize">Already have an account?<a href="{{ url_for('login') }}"> Log In</a></p>
-                </div>
             </form>
+            <div class="indent">
+                <span class="italicize">Already have an account? <a href="{{ url_for('login') }}">Log In</a></span>
+            </div>
         </div>
 
 

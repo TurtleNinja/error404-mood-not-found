@@ -54,6 +54,7 @@ html, body {
     background: #200E32;
     color: white;
     font-size: 17px;
+    /*margin-top: 1vh;*/
 }
 .black_btn:hover {
     cursor: pointer;

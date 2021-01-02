@@ -45,7 +45,7 @@
            <a href="">Log In</a>
        </div> -->
 
-       {% with messages = get_flashed_messages(with_categories=true) %}
+       <!-- {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
                     <div>
@@ -53,12 +53,22 @@
                     </div>
                 {% endfor%}
             {% endif %}
-        {% endwith%}
+        {% endwith%} -->
 
         <div class="login_container">
             <div style="text-align: right">
                 <img src="../static/img/x.png" class="close_btn">
+                <i class="fas fa-times"></i>
             </div>
+            {% with messages = get_flashed_messages(category_filter=["message"]) %}
+                 {% if messages %}
+                     {% for message in messages %}
+                         <div class="center" style="margin-bottom: 1vh">
+                             {{ message }}
+                         </div>
+                     {% endfor%}
+                 {% endif %}
+             {% endwith%}
             <form method="POST" action="">
                 {{ form.hidden_tag() }}
                 <fieldset>
@@ -72,14 +82,22 @@
                         {{ form.password(class="input", placeholder="Enter Password") }}
                     </div>
                 </fieldset>
-                <br>
+                {% with messages = get_flashed_messages(category_filter=["failure"]) %}
+                     {% if messages %}
+                         {% for message in messages %}
+                             <div class="indent failure">
+                                 <span>{{ message }}</span>
+                             </div>
+                         {% endfor%}
+                     {% endif %}
+                 {% endwith%}
                 <div class="center">
                     {{ form.submit(class_="black_btn") }}
                 </div>
-                <div class="indent">
-                    <p class="italicize">Need an account?<a href="{{ url_for('signup') }}"> Sign Up</a></p>
-                </div>
             </form>
+            <div class="indent">
+                <span class="italicize">Need an account? <a href="{{ url_for('signup') }}">Sign Up</a></span>
+            </div>
         </div>
 
     </body>

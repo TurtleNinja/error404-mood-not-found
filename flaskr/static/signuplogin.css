@@ -1,10 +1,11 @@
+
 .login_container, .signup_container {
     background-color: #E8E8FF;
     width: 50vw;
     display: block;
     margin: 0 auto;
     position: relative;
-    transform: translateY(10vh);
+    transform: translateY(5vh);
     border: 1px solid black;
     box-shadow: 15px 20px 20px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
@@ -12,15 +13,23 @@
 }
 
 .close_btn {
+    /*font-size: 25px;*/
     width: 30px;
     height: 30px;
+}
+.close_btn:hover {
+    cursor: pointer;
+}
+
+fieldset {
+    margin: 0 0 1.5vh;
 }
 
 .input {
     background-color: #FFFFFF;
     border: none;
     width: 100%;
-    padding: 10px 0;
+    padding: 7px 0;
     padding-left: 10px;
     font-size: 15px;
     font-family: 'Red Hat Display';
@@ -38,10 +47,17 @@
 }
 
 .indent {
-    padding: 2px 10px;
+    padding-left: 10px;
+    margin: 0 0 1vh;
+}
+.indent:last-of-type {
+  margin-top: 1vh;
 }
 .italicize {
     font-style: italic;
+}
+.failure {
+    color: red;
 }
 
 @media only screen and (max-width: 450px) {
