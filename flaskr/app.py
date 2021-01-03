@@ -8,6 +8,7 @@ from werkzeug.urls import url_parse
 import json, sqlite3
 
 from flaskr.query_media import get_content
+from flaskr.chatbot import chatbot
 
 
 @app.route('/')
@@ -192,7 +193,17 @@ def mood_randomizer_relax():
 
     return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
 
+
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    return str(chatbot.get_response(userText))
+
 @app.route('/chatbot')
 @login_required
 def chat():
     return render_template("JoyBotPage.html")
+
+@app.route('/temp_chatbot')
+def temp_chat():
+    return render_template("temp_JoyBotPage.html")
