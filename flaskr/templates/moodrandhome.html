@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 
+{% set active_page = 'moodrandomizer' %}
+
 {% block stylesheet %}
     <link href="../static/style.css" rel="stylesheet">
     <link href="../static/MoodRandomizerLaugh.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> -->
+
 {% endblock %}
 
 
@@ -16,18 +23,28 @@
 
         <h1>Mood Randomizer</h1>
 
-        <h2>
-            I want to feel...
-            <select class="selectpicker">
+        <!-- <h2> -->
+          <label for="selectpicker">I want to feel... &nbsp;</label>  <!--I want to feel...-->
+          <select id="selectpicker">
             <option value="relax">Relaxed</option>
             <option value="amused">Amused</option>
             <option value="motivated">Motivated</option>
           </select>
-        </h2>
+        <!-- </h2> -->
 
+        <!-- <div class="form-group form-inline">
+          <label for="mySelect" class="d-inline-block">I want to feel... &nbsp;</label>
+          <select id="mySelect" class="form-select selectpicker d-inline-block" style="width: auto">
+            <option value="relax">Relaxed</option>
+            <option value="amused">Amused</option>
+            <option value="motivated">Motivated</option>
+          </select>
+        </div> -->
+
+      <br><br>
 
         <div style="text-align:center;">
-            <button class="rand_submit hi" type="submit">Go!</button>
+            <button class="rand_submit black_btn" type="submit">Go!</button>
         </div>
 
     </div>

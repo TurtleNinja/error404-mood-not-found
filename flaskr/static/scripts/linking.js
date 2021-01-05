@@ -16,7 +16,7 @@ $(document).ready(function() {
     // mood randomizer
     $('.rand_submit').click(function(){
         console.log("submit clicked");
-        var dropdown_val = $('.selectpicker').val();
+        var dropdown_val = $('#selectpicker').val();
         link_str = "mood_randomizer_" + dropdown_val;
         window.location.href = '/' + link_str;
     });

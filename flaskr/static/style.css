@@ -51,7 +51,7 @@ html, body {
     border-radius: 10px;
     outline: none;
     border: 0;
-    background: #200E32;
+    background: black;
     color: white;
     font-size: 17px;
     /*margin-top: 1vh;*/
@@ -83,3 +83,7 @@ html, body {
         text-align: right;
         margin: auto;
     }
+    .black_btn {
+        padding: 7px 10vw;
+    }
+}

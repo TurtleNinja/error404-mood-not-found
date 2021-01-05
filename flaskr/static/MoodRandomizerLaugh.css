@@ -26,3 +26,24 @@ h2 {
     border-radius: 15px;
     font-size: 20px;
 }
+#selectpicker {
+    font-size: 17px;
+    border-radius: 7px;
+    padding: 0.5vw;
+}
+label {
+    font-size: 25px;
+    color: white;
+}
+
+/* .form-control {
+    width: auto;
+    display: inline-block;
+}
+/* .form-select {
+    font-size: 10px;
+} */
+/* label {
+    font-size: 20px;
+    color: white;
+} */
