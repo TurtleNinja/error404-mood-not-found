@@ -2,25 +2,26 @@ html, body {
     background-image: url("img/bg.png");
     background-attachment: fixed;
     background-size: cover;
-    padding: 10px 10px;
+    padding: 1vw;
     font-family: 'Red Hat Display', sans-serif !important;
 }
 #nav-bar {
-    display: flex;
-    margin-bottom: 15px;
-    color: white;
+    /* display: flex; */
+    /* margin-bottom: 15px; */
+    position: relative;
 }
 #nav-bar a, #nav-bar span {
-    color: white;
     text-decoration: none;
-    display: inline-block;
-    font-family: 'Red Hat Display', sans-serif;
+    /* display: inline-block; */
     /* margin: 5px 30px; */
-    margin: 0 2vw;
-    vertical-align: middle;
-    justify-content: center;
-    align-items: center;
+    color: white;
 }
+.mobile {
+    display: flex;
+    /* margin-bottom: 1vh; */
+    justify-content: space-between;
+}
+
 .navbarlink{
     margin: 0 2vw 0 0 !important;
 }
@@ -30,16 +31,41 @@ html, body {
 .active {
     font-weight: 700;
 }
-.left {
-    flex: 1;
-    justify-content: center;
+
+#toggle {
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+    color: white;
+}
+#pages, .dropdown {
+    display: none;
+}
+
+#pages {
+    position: absolute;
+    /* width: 50%; */
+    z-index: 1;
+    /* margin-left: auto;
+    text-align: right; */
+    right: 0;
+    border: 1px solid gray;
+    background-color: black;
+}
+#pages a{
+    margin: 3px 0;
+}
+/* #page-mobile {
+    background-color: lightgray;
+} */
+.left, .right {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    margin: 1vh 2vw;
 }
 .right {
-    display: inline;
-    float: right;
-    text-align: right;
-    margin: 0 auto;
+    border-top: 1px solid lightgray;
 }
 
 .center {
@@ -60,15 +86,97 @@ html, body {
     cursor: pointer;
 }
 
+/* desktop and tablet navbar view */
+@media only screen and (min-width: 550px) {
+
+    .mobile {
+        display: none;
+    }
+    #pages {
+        display: flex;
+        position: static;
+        width: 100%;
+        border: 0;
+        background-color: transparent;
+    }
+    .dropdown {
+        display: block;
+        color: white;
+    }
+
+
+    #nav-bar {
+        margin-bottom: 1.5vh;
+    }
+    #nav-bar a, #nav-bar span, .dropdown {
+        margin: 0 2vw;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left a:first-of-type {
+        margin-left: 0 !important;
+    }
+
+    .left, .right {
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        /* flex: 1; */
+    }
+    .right {
+        margin-left: auto;
+        border: 0;
+    }
+
+    /* styling dropdown */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown .dropdownbtn {
+        border: none;
+        outline: none;
+        background-color: inherit;
+        font-size: inherit;
+        font-family: inherit;
+        color: white;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background-color: black;
+        text-align: center;
+        /* margin: 0; */
+        padding: 3px 0;
+        border: 1px solid gray;
+        margin-top: 2px;
+
+    }
+
+    .dropdown-content a {
+        margin: 0 !important;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+}
+
 @media only screen and (max-width: 500px) {
-    html, body {
+    /* html, body {
         background-image: url("img/bg.png");
         background-attachment: fixed;
         background-size: cover;
         padding: 5px 5px;
         font-family: 'Red Hat Display', sans-serif !important;
-    }
-    #nav-bar a {
+    } */
+    /* #nav-bar a {
         margin: 1vw 3vw;
     }
     .left {
@@ -82,7 +190,7 @@ html, body {
         float: right;
         text-align: right;
         margin: auto;
-    }
+    } */
     .black_btn {
         padding: 7px 10vw;
     }
