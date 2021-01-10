@@ -167,7 +167,7 @@ def get_data():
 
 @app.route('/mood_randomizer_home')
 def mood_randomizer_home():
-    moods = ["Relaxed", "Amused", "Motivated", "Optimistic", "Energized"]
+    moods = ["relaxed", "amused", "motivated", "optimistic", "energized", "amazed", "intrigued"]
     return render_template("moodrandhome.html", moods=moods)
 
 
@@ -187,8 +187,9 @@ def mood_randomizer(mood):
                     'title': content[3]}
     print(mood_content)
     print(jsonify(mood_content))
+    mood = mood.lower()
 
-    return render_template('moodRandomizerTemplate.html', content=mood_content)
+    return render_template('moodRandomizerTemplate.html', content=mood_content, mood_inp=mood)
 
 
 #@app.route('/mood_randomizer_amazed')
