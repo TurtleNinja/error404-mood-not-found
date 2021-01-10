@@ -26,11 +26,13 @@
             -->
 
             <!-- <iframe width="600" height="315" src="https://www.youtube.com/embed/F4we73GHH9k"></iframe> -->
-            <iframe width="600" height="315" src='{{ content.link }}''></iframe>
+            <div class="videoContainer">
+                <iframe width="100%" src='{{ content.link }}''></iframe>
+            </div>
 
         {% elif content.type == "Image" %}
             <h3 style="color:white">{{ content.title }}</h3>
-            <img style='max-width: 100%; height: auto;' src='{{ content.link }}'/>
+            <img src='{{ content.link }}'/>
 
 
         {% else %}
@@ -38,8 +40,12 @@
 
         {% endif %}
 
+        <br><br>
+
         <div style="text-align:center;">
-            <button class="hi" onClick="window.location.reload();">Show me another!</button>
+            <button class="black_btn" onClick="window.location.reload();">Show me another!</button>
         </div>
+
+        <br>
 
 {% endblock %}
