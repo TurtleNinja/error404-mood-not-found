@@ -12,3 +12,8 @@ node_modules
 
 # Ignore SASS config files
 .sass-cache
+
+flaskr/__pycache__
+venv
+__pycache__
+.vscode

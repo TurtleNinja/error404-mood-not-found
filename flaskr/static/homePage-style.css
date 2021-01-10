@@ -68,7 +68,7 @@ div.right {
 /*styling the homepage JoyBot image*/
 #joypic {
   /* background-size: contain; */
-  width: 15em;
+  width: 17em;
   height: 35em;
   align-self: flex-end;
   /* height: 614px;
@@ -171,7 +171,7 @@ div.right {
   margin-left: 1em;
 }
 
-.image-desc p, .image-desc h3 {
+.image-desc p, .image-desc h2 {
   margin: 1vh 0;
 }
 
