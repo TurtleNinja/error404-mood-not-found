@@ -3,6 +3,7 @@
 {% block stylesheet %}
   <!--<meta name="viewport" content="width=device-width, initial-scale=3">-->
   <link href="../static/homePage-style.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 {% endblock %}
 
     {% block title %}
@@ -10,26 +11,37 @@
     {% endblock %}
 
     {% block content %}
-        <!--<nav class="nav navbar-default">
-          <div class="nav navbar-nav left">
-            <a href=""><b>moodtracker</b></a>
-            <a href=""><b>moodrandomizer</b></a>
-            <a href=""><b>joybot</b></a>
-            <div class="nav navbar-nav right">
-              <a href="">log in</a>
-            </div>
-          </div>
-        </nav>-->
 
         <section id="front">
+          <div class="frontCenter">
+              <div class="frontContainerLeft joy-image-section">
+                    <img id="joypic" src="../static/img/homePage-joy.png">
+                    <!-- <img id="joypic" src="../static/img/joypic.png" alt="image of joy"> -->
+              </div>
+              <div class="frontContainerRight">
+                  <div id="titleDescCntr">
+                      <h1 id="websiteTitle">JoyBot</h1>
+                      <p id="websiteDescription">Welcome to JoyBot! Our mission is to help our users
+                      not feel alone. We believe that mental health is a very important issue
+                      that should be dealt with great care and love. So join us! Talk to our JoyBot,
+                      record your moods to better understand your mood patterns, and click on our
+                      mood randomizer to help brighten your mood. We, at JoyBot, care about our
+                      users and wish them nothing but happiness. Enjoy!
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </section>
+
+        <!-- <section id="front">
             <div class="frontContainer">
               <div id="websiteTitle">
                 <h1 id="frontText">JoyBot</h1>
               </div>
               <div id="websiteDescription">
-                <h2 class="frontText" id="web-summary">Welcome to JoyBot! Our mission is to help our users 
-                not feel alone. We believe that mental health is a very important issue 
-                that should be dealt with great care and love. So join us! Talk to our JoyBot, 
+                <h2 class="frontText" id="web-summary">Welcome to JoyBot! Our mission is to help our users
+                not feel alone. We believe that mental health is a very important issue
+                that should be dealt with great care and love. So join us! Talk to our JoyBot,
                 record your moods to better understand your mood patterns, and click on our
                 mood randomizer to help brighten your mood. We, at JoyBot, care about our
                 users and wish them nothing but happiness. Enjoy!
@@ -39,23 +51,39 @@
                 <img class="frontText" id="welcome-joy" src="../static/img/homePage-joy.png">
               </div>
             </div>
-          </section>
+          </section> -->
 
           <section id="frontPage2">
-            <div class="frontContainer2">
-              <div class="frontPage2-boxes" id="moodtracker-box">
-                <h2>mood tracker</h2>
-                <img class="image-icons" id="mood-tracker-icon" src="../static/img/mood-tracker-icon.png">
-              </div>
-              <div class="frontPage2-boxes" id="moodrandomizer-box">
-                <h2>mood randomizer</h2>
-                <img class="image-icons" id="mood-randomizer-icon" src="../static/img/mood-randomizer-icon.png">
-              </div>
-              <div class="frontPage2-boxes" id="JoyBot-box">
-                <h2>JoyBot</h2>
-                <img class="image-icons" id="joy-image-icon" src="../static/img/joy-image-icon.png">
-              </div>
-            </div>
+
+                <div id="moodtracker-box">
+                    <div class="image-icons">
+                        <img id="mood-tracker-icon" src="../static/img/mood-tracker-icon.png">
+                    </div>
+                    <div class="image-desc">
+                        <h3>Mood Tracker</h3>
+                        <p>Keep track of your mood and take notes</p>
+                    </div>
+                </div>
+
+                <div id="moodrandomizer-box">
+                    <div class="image-icons">
+                        <img id="mood-randomizer-icon" src="../static/img/mood-randomizer-icon.png">
+                    </div>
+                    <div class="image-desc">
+                        <h3>Mood Randomizer</h3>
+                        <p>Generate random content to boost your mood</p>
+                    </div>
+                </div>
+
+                <div id="JoyBot-box">
+                    <div class="image-icons">
+                        <img id="joy-image-icon" src="../static/img/joy-image-icon.png">
+                    </div>
+                    <div class="image-desc">
+                        <h2>Joybot</h2>
+                        <p>Want to chat? Talk to Joy!</p>
+                    </div>
+                </div>
 
           </section>
     {% endblock %}
