@@ -26,20 +26,11 @@
         <!-- <h2> -->
           <label for="selectpicker">I want to feel... &nbsp;</label>  <!--I want to feel...-->
           <select id="selectpicker">
-            <option value="relax">Relaxed</option>
-            <option value="amused">Amused</option>
-            <option value="motivated">Motivated</option>
+            {% for mood in moods %}
+              <option value='{{ mood }}'>{{ mood }}</option>
+            {% endfor %}
           </select>
         <!-- </h2> -->
-
-        <!-- <div class="form-group form-inline">
-          <label for="mySelect" class="d-inline-block">I want to feel... &nbsp;</label>
-          <select id="mySelect" class="form-select selectpicker d-inline-block" style="width: auto">
-            <option value="relax">Relaxed</option>
-            <option value="amused">Amused</option>
-            <option value="motivated">Motivated</option>
-          </select>
-        </div> -->
 
       <br><br>
 
