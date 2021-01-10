@@ -1,8 +1,14 @@
-flaskr/__pycache__
-venv
-.DS_Store
-../../.DS_Store
-../.DS_Store
-../static/.DS_Store
-__pycache__
-.vscode
+# Ignore Mac system files
+.DS_store
+
+# Ignore node_modules folder
+node_modules
+
+# Ignore all text files
+*.txt
+
+# Ignore files related to API keys
+.env
+
+# Ignore SASS config files
+.sass-cache

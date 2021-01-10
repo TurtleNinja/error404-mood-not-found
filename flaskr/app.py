@@ -8,7 +8,7 @@ from werkzeug.urls import url_parse
 import json, sqlite3
 
 from flaskr.query_media import get_content
-from flaskr.chatbot import chatbot
+#from flaskr.chatbot import chatbot
 
 
 @app.route('/')
@@ -167,37 +167,88 @@ def get_data():
 
 @app.route('/mood_randomizer_home')
 def mood_randomizer_home():
-    return render_template("moodrandhome.html")
-
-@app.route('/mood_randomizer_amused')
-def mood_rand_amused():
-    rand_content = get_content('Amused')
+    moods = ["relaxed", "amused", "motivated", "optimistic", "energized", "amazed", "intrigued"]
+    return render_template("moodrandhome.html", moods=moods)
 
 
-    for element in rand_content:
-        media_type=element[1]
-        media_link=element[2]
-        media_title=element[3]
 
-    return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
+@app.route('/mood_randomizer/<string:mood>')
+def mood_randomizer(mood):
+    data = get_content(mood.title())
+    print(mood, data)
 
-@app.route('/mood_randomizer_relax')
-def mood_randomizer_relax():
-    rand_content = get_content('Relaxed')
+    if data == []:
+        return render_template('moodRandomizerTemplate.html', content=data), 404
+
+    content=data[0]
+    mood_content = {'mood': content[0],
+                    'type': content[1],
+                    'link': content[2],
+                    'title': content[3]}
+    print(mood_content)
+    print(jsonify(mood_content))
+    mood = mood.lower()
+
+    return render_template('moodRandomizerTemplate.html', content=mood_content, mood_inp=mood)
 
 
-    for element in rand_content:
-        media_type=element[1]
-        media_link=element[2]
-        media_title=element[3]
-
-    return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
+#@app.route('/mood_randomizer_amazed')
+#def mood_randomizer_amazed():
+#    rand_content = get_content('Amazed')
 
 
-@app.route("/get")
-def get_bot_response():
-    userText = request.args.get('msg')
-    return str(chatbot.get_response(userText))
+#    for element in rand_content:
+#        media_type=element[1]
+#        media_link=element[2]
+#        media_title=element[3]
+
+#    return render_template('MoodRandomizerAmazed.html', media=media_type, title=media_title, link=media_link)
+
+
+#@app.route('/mood_randomizer_intrigued')
+#def mood_randomizer_intrigued():
+#    rand_content = get_content('Intrigued')
+
+
+#    for element in rand_content:
+#        media_type=element[1]
+#        media_link=element[2]
+#        media_title=element[3]
+
+#    return render_template('MoodRandomizerIntrigued.html', media=media_type, title=media_title, link=media_link)
+
+
+#@app.route('/mood_randomizer_optimistic')
+#def mood_randomizer_optimistic():
+#    rand_content = get_content('Optimistic')
+
+
+#    for element in rand_content:
+#        media_type=element[1]
+#        media_link=element[2]
+#        media_title=element[3]
+
+#    return render_template('MoodRandomizerOptimistic.html', media=media_type, title=media_title, link=media_link)
+
+
+#@app.route('/mood_randomizer_energized')
+#def mood_randomizer_energized():
+#    rand_content = get_content('Energized')
+
+
+#    for element in rand_content:
+#        media_type=element[1]
+#        media_link=element[2]
+#        media_title=element[3]
+
+#    return render_template('MoodRandomizerEnergized.html', media=media_type, title=media_title, link=media_link)
+
+
+
+#@app.route("/get")
+#def get_bot_response():
+#    userText = request.args.get('msg')
+#    return str(chatbot.get_response(userText))
 
 @app.route('/chatbot')
 @login_required

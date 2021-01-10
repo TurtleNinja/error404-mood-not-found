@@ -27,12 +27,26 @@
 
     <h2>Here's something that might make you motivated: </h2>
     <!-- <br> -->
-    <iframe width="600" height="315" src="https://www.youtube.com/embed/GhAak7eBdcU">
-    </iframe>
-    <br>
+    <!-- <iframe width="600" height="315" src="https://www.youtube.com/embed/GhAak7eBdcU"> -->
     <br>
 
-    <button class="hi" type="button">Show me another!</button>
+    {% if media == "Video" %}
+
+        <iframe width="600" height="315" src={{link}}></iframe>
+
+    {% elif media == "Image" %}
+        <h3 style="color:white">{{title}}</h3>
+        <img src={{link}} style='max-width: 100%; height: auto;'/>
+
+
+    {% else %}
+        <h2>{{link}}</h2>
+
+    {% endif %}
+
+    <div style="text-align:center;">
+        <button class="hi" onClick="window.location.reload();">Show me another!</button>
+    </div>
 
 </body>
 

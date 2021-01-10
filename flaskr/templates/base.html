@@ -8,6 +8,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="../static/scripts/linking.js"></script>
         <link href="../static/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
         <!-- to fill in stylesheets used -->
         {% block stylesheet %}
         {% endblock %}
@@ -19,24 +21,47 @@
     </head>
 
     <body>
-        <section id="nav-bar">
-            <div class="left">
-                <a href="{{ url_for('mood_tracker') }}" class="{{ 'active' if active_page=='moodtracker' }}">moodtracker</a>
-                <a href="{{ url_for('mood_randomizer_home') }}" class="{{ 'active' if active_page=='moodrandomizer' }}">moodrandomizer</a>
-                <a href="{{ url_for('chat') }}" class="{{ 'active' if active_page=='chat' }}">joybot</a>
-            </div>
 
-            {% if current_user.is_anonymous %}
-            <div class="right">
-                <a href="{{ url_for('signup') }}">register</a>
-                <a href="{{ url_for('login') }}">login</a>
+        <section id="nav-bar">
+            <div class="mobile">
+                {% if current_user.is_anonymous %}
+                <a class="navbarlink">Joybot</a>
+                {% else %}
+                <span>hello&nbsp;<a class="navbarlink">{{current_user.username}}</a></span>
+                {% endif %}
+                <div id="toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            {% else %}
-            <div class="right">
-                <span>hello&nbsp;</span><a class="navbarlink" href="{{ url_for('mood_tracker') }}">{{current_user.username}}!</a>
-                <a href="{{ url_for('logout') }}">log out</a>
+            <div id="pages">
+                <div class="left">
+                    <a href="{{ url_for('mood_tracker') }}" class="{{ 'active' if active_page=='moodtracker' }}">moodtracker</a>
+                    <a href="{{ url_for('mood_randomizer_home') }}" class="{{ 'active' if active_page=='moodrandomizer' }}">moodrandomizer</a>
+                    <a href="{{ url_for('chat') }}" class="{{ 'active' if active_page=='chat' }}">joybot</a>
+                </div>
+                <div class="right">
+                    {% if current_user.is_authenticated %}
+                    <div class="mobile">
+                        <a href="{{ url_for('logout') }}">logout</a>
+                    </div>
+
+                    {% else %}
+                    <a href="{{ url_for('signup') }}">register</a>
+                    <a href="{{ url_for('login') }}">login</a>
+                    {% endif %}
+
+                    {% if current_user.is_authenticated %}
+                    <div class="dropdown">
+                        <button class="dropdownbtn">{{current_user.username}}
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="{{ url_for('logout') }}">logout</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
-            {% endif %}
 
         </section>
 
@@ -45,14 +70,44 @@
             {% endblock %}
         </section>
 
-        <section id="footer">
-            <div>
-                <a href="">About us</a>
-                <a href="">Contact</a>
-            </div>
-        </section>
 
     </body>
+
+    <script>
+
+    $(document).ready(function(){
+
+        $(document).click(function (event) {
+
+            var windowSize = $(this).width();
+            console.log(windowSize);
+            if(windowSize < 550) {
+                //console.log($(e.target).is('.fa-bars'));
+                // toggles pages div view if its clicked
+                if ($(event.target).is('.fa-bars')) {
+                    $('#pages').toggle();
+                }
+                // targets everything that's outside of pages
+                else if ($(event.target).closest('#pages').length == 0) {
+                    //   console.log($(e.target).closest('#pages').length == 0);
+                    $("#pages").hide();
+                }
+            }
+        });
+
+        $(window).resize(function() {
+            var windowSize = $(this).width();
+            $('#pages').css('display', 'none');
+            if(windowSize > 550) {
+               $('#pages').css('display','flex');
+               //console.log("page is display flex");
+            }
+        });
+
+    });
+
+
+    </script>
 
 
 
