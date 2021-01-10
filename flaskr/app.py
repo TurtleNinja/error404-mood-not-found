@@ -167,43 +167,29 @@ def get_data():
 
 @app.route('/mood_randomizer_home')
 def mood_randomizer_home():
-    return render_template("moodrandhome.html")
-
-@app.route('/mood_randomizer_amused')
-def mood_rand_amused():
-    rand_content = get_content('Amused')
+    moods = ["Relaxed", "Amused", "Motivated", "Optimistic", "Energized"]
+    return render_template("moodrandhome.html", moods=moods)
 
 
-    for element in rand_content:
-        media_type=element[1]
-        media_link=element[2]
-        media_title=element[3]
 
-    return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
+@app.route('/mood_randomizer/<string:mood>')
+def mood_randomizer(mood):
+    data = get_content(mood.title())
+    print(mood, data)
 
-@app.route('/mood_randomizer_relax')
-def mood_randomizer_relax():
-    rand_content = get_content('Relaxed')
+    if data == []:
+        return render_template('moodRandomizerTemplate.html', content=data), 404
 
+    content=data[0]
+    mood_content = {'mood': content[0],
+                    'type': content[1],
+                    'link': content[2],
+                    'title': content[3]}
+    print(mood_content)
+    print(jsonify(mood_content))
 
-    for element in rand_content:
-        media_type=element[1]
-        media_link=element[2]
-        media_title=element[3]
+    return render_template('moodRandomizerTemplate.html', content=mood_content)
 
-    return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
-
-@app.route('/mood_randomizer_motivated')
-def mood_randomizer_motivated():
-    rand_content = get_content('Motivated')
-
-
-    for element in rand_content:
-        media_type=element[1]
-        media_link=element[2]
-        media_title=element[3]
-
-    return render_template('MoodRandomizerMotivated.html', media=media_type, title=media_title, link=media_link)
 
 #@app.route('/mood_randomizer_amazed')
 #def mood_randomizer_amazed():
