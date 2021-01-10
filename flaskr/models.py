@@ -32,7 +32,7 @@ class Entry(db.Model):
     title = db.Column(db.Text)
     journal = db.Column(db.Text)
 
-    # author = db.relationship('User', backref=db.backref('entries', lazy=True))
+    author = db.relationship('User', backref=db.backref('entries', lazy=True))
 
     def __init__(self, mood_rate, title, journal, author):
         self.mood_rate = mood_rate
@@ -43,4 +43,4 @@ class Entry(db.Model):
     def __repr__(self):
         return '<Entry {}>'.format(self.journal[:30])
 
-db.create_all()
+#db.create_all()
