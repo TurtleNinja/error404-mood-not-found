@@ -6,7 +6,7 @@
 html, body {
     background-image: linear-gradient(to top, #2109B6, lightblue);
     padding: 0;
-    margin: auto 0;
+    margin: 0;
 }
 
 /* ***NAVIGATION LINKS SECTION *** */
@@ -17,6 +17,9 @@ html, body {
   margin: 8px 8px 0;
 }
 
+#main-content {
+  padding-top: 2vh;
+}
 
 /* styling the home page background image */
 
@@ -37,8 +40,10 @@ html, body {
 
 /*styling the homepage JoyBot image*/
 #joypic {
-  width: 17em;
+  width: 19em;
   height: 35em;
+  /* width: 95%;
+  height: auto; */
   align-self: flex-end;
 
   opacity: 0.9;
@@ -138,14 +143,14 @@ html, body {
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
     .frontCenter {
-      width: 80%;
+      width: 85%;
     }
 }
 
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 700px) {
 
     .frontCenter {
       display: block;
@@ -170,6 +175,8 @@ html, body {
     }
 
     #joypic {
+      width: 20em;
+      max-width: 100%;
       opacity: 0.4;
     }
 

@@ -8,7 +8,7 @@ html, body {
 
 #nav-bar {
     position: relative;
-    font-size: 19px;
+    font-size: 17px;
 }
 
 #nav-bar a, #nav-bar span {
@@ -60,7 +60,8 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1vh 2vw;
+    margin: 5px 3vw;
+    padding: 0 1vw;
 }
 
 .right {
@@ -108,6 +109,7 @@ html, body {
 
     #nav-bar {
         margin-bottom: 1.5vh;
+        font-size: 16px;
     }
 
     #nav-bar a, #nav-bar span, .dropdown {
@@ -169,11 +171,3 @@ html, body {
     }
 
 }
-
-/* @media only screen and (max-width: 500px) {
-
-    .black_btn {
-        padding: 7px 10vw;
-    }
-
-} */
