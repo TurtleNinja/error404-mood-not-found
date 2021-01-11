@@ -1,16 +1,21 @@
+#main-content {
+    margin: 2vh 0;
+}
 
 .datecal {
     text-align: center;
     color: white;
     vertical-align: middle;
 }
+
 .datecal img {
     width: 25px;
 }
+
 .datecal span {
     display: inline-flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .container {

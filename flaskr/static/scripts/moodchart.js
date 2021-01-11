@@ -12,6 +12,7 @@ $(document).ready(function() {
         },
     });
 
+    // function to change color of datapoints depending on the received values
     function changeColor(data) {
         var colors = [];
         for (i = 0; i < data.length; i++) {
@@ -19,18 +20,21 @@ $(document).ready(function() {
 
             if (data[i] == 1) {
                 color = "red";
-            } else if (data[i] == 2) {
+            }
+            else if (data[i] == 2) {
                 color = "orange"
-            } else if (data[i] == 3) {
+            }
+            else if (data[i] == 3) {
                 color = "blue"
-            } else if (data[i] == 4) {
+            }
+            else if (data[i] == 4) {
                 color = "green"
-            } else {
+            }
+            else {
                 color = "yellow"
             }
             colors.push(color);
         }
-        console.log(colors);
         return colors;
     }
 
@@ -42,6 +46,7 @@ $(document).ready(function() {
 
         var ctx = document.getElementById('moodchart').getContext('2d');
         var chart = new Chart(ctx, {
+
             // want to create line chart
             type: 'line',
 
@@ -49,8 +54,6 @@ $(document).ready(function() {
             data: {
                 labels: label,
                 datasets: [{
-                    // label: 'Mood Rating Trend',
-                    // backgroundColor: 'rgb(255,182,193)',
                     pointBackgroundColor: changeColor(data),
                     pointBorderColor: changeColor(data),
                     borderColor: 'rgba(0, 0, 0, 0.3)',

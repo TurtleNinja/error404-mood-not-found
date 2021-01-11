@@ -28,7 +28,7 @@ def load_user(id):
 class Entry(db.Model):
     __tablename__ = "Entries"
     id =  db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    date = db.Column(db.DateTime, nullable=False, default=datetime.now)
     author_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
     mood_rate = db.Column(db.Integer, nullable=False)
     title = db.Column(db.Text)
