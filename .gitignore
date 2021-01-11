@@ -1,5 +1,7 @@
 # Ignore Mac system files
 .DS_store
+flaskr/.DS_store
+
 
 # Ignore node_modules folder
 node_modules
