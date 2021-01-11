@@ -192,6 +192,46 @@ def mood_randomizer_home():
 #     return render_template('moodRandomizerTemplate.html', content=mood_content, mood_inp=mood)
 
 
+@app.route('/mood_randomizer_relaxed')
+def mood_randomizer_relaxed():
+   rand_content = get_content('Relaxed')
+
+
+   for element in rand_content:
+       media_type=element[1]
+       media_link=element[2]
+       media_title=element[3]
+
+   return render_template('moodrandrelax.html', media=media_type, title=media_title, link=media_link)
+
+
+@app.route('/mood_randomizer_amused')
+def mood_randomizer_amused():
+   rand_content = get_content('Amused')
+
+
+   for element in rand_content:
+       media_type=element[1]
+       media_link=element[2]
+       media_title=element[3]
+
+   return render_template('MoodRandomizerLaugh.html', media=media_type, title=media_title, link=media_link)
+
+
+@app.route('/mood_randomizer_motivated')
+def mood_randomizer_motivated():
+   rand_content = get_content('Motivated')
+
+
+   for element in rand_content:
+       media_type=element[1]
+       media_link=element[2]
+       media_title=element[3]
+
+   return render_template('MoodRandomizerMotivated.html', media=media_type, title=media_title, link=media_link)
+
+
+
 @app.route('/mood_randomizer_amazed')
 def mood_randomizer_amazed():
    rand_content = get_content('Amazed')

@@ -1,39 +1,26 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %} {% set active_page = 'moodrandomizer' %} {% block stylesheet %}
+<link href="../static/style.css" rel="stylesheet">
+<link href="../static/MoodRandomizerLaugh.css" rel="stylesheet" type="text/css"> {% endblock %} {% block title %} JoyBot | MoodRandomizer {% endblock %} {% block content %}
 
-<head>
-    <link href="../static/MoodRandomizerMotivated.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<div class="center">
 
-<body>
-    <nav class="nav navbar-default">
-        <div class="nav navbar-nav left">
-            <a href=""><b>mood tracker</b></a>
-            <a href=""><b>mood randomizer</b></a>
-            <a href=""><b>JoyBot</b></a>
-            <div class="nav navbar-nav right">
-                <a href="">log in</a>
-            </div>
-        </div>
-    </nav>
-
-    <br>
-    <br>
     <h1>Intrigued</h1>
 
-    <!-- <div class = "" -->
+    <h2>Sit back, relax, and enjoy this!</h2>
+    <br> {% if media == "Video" %}
+    <!-- <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/8421388&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/michael-ottosson" title="Michael Ottosson" target="_blank" style="color: #cccccc; text-decoration: none;">Michael Ottosson</a> · <a href="https://soundcloud.com/michael-ottosson/claire-du-lune" title="Clair de Lune" target="_blank" style="color: #cccccc; text-decoration: none;">Clair de Lune</a></div>
+            -->
 
-    <h2>Here's something that might make you intrigued: </h2>
-    <!-- <br> -->
-    <iframe width="600" height="315" src="https://www.youtube.com/embed/FkQWpQd9Zdo">
-    </iframe>
-    <br>
-    <br>
+    <!-- <iframe width="600" height="315" src="https://www.youtube.com/embed/F4we73GHH9k"></iframe> -->
+    <iframe width="600" height="315" src={{link}}></iframe> {% elif media == "Image" %}
+    <h3 style="color:white">{{title}}</h3>
+    <img src={{link}} style='max-width: 100%; height: auto;' /> {% else %}
+    <h2>{{link}}</h2>
 
-    <button class="hi" type="button">Show me another!</button>
+    {% endif %}
 
-</body>
+    <div style="text-align:center;">
+        <button class="black_btn" onClick="window.location.reload();">Show me another!</button>
+    </div>
 
-</html>
+    {% endblock %}

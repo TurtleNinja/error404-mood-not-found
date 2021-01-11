@@ -16,6 +16,7 @@ $(document).ready(function() {
     // mood randomizer
     $('.rand_submit').click(function() {
         var dropdown_val = $('#selectpicker').val();
+        console.log(dropdown_val);
         window.location.href = `/mood_randomizer_${dropdown_val}`;
     });
 });
