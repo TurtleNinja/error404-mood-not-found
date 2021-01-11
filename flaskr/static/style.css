@@ -170,4 +170,15 @@ html, body {
         display: block;
     }
 
+    .black_btn {
+        padding: 8px 4vw;
+        border-radius: 10px;
+        outline: none;
+        border: 0;
+        background: black;
+        color: white;
+        font-size: 17px;
+        /*margin-top: 1vh;*/
+    }
+
 }
