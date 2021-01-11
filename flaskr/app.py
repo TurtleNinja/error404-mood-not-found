@@ -245,10 +245,10 @@ def mood_randomizer_energized():
 
 
 
-#@app.route("/get")
-#def get_bot_response():
-#    userText = request.args.get('msg')
-#    return str(chatbot.get_response(userText))
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get('msg')
+    return str(chatbot.get_response(userText))
 
 @app.route('/chatbot')
 @login_required
