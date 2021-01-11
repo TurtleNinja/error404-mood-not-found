@@ -165,10 +165,10 @@ def get_data():
         return jsonify({'mood':json.dumps({'data':[], 'labels':[]})})
 
 
-# @app.route('/mood_randomizer_home')
-# def mood_randomizer_home():
-#     moods = ["relaxed", "amused", "motivated", "optimistic", "energized", "amazed", "intrigued"]
-#     return render_template("moodrandhome.html", moods=moods)
+@app.route('/mood_randomizer_home')
+def mood_randomizer_home():
+    moods = ["relaxed", "amused", "motivated", "optimistic", "energized", "amazed", "intrigued"]
+    return render_template("moodrandhome.html", moods=moods)
 
 
 
