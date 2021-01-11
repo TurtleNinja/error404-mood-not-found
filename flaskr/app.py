@@ -192,7 +192,7 @@ def mood_randomizer_home():
 #     return render_template('moodRandomizerTemplate.html', content=mood_content, mood_inp=mood)
 
 
-@app.route('/mood_randomizer/amazed')
+@app.route('/mood_randomizer_amazed')
 def mood_randomizer_amazed():
    rand_content = get_content('Amazed')
 
