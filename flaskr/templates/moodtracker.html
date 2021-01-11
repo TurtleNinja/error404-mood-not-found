@@ -4,7 +4,6 @@
 
 {% block stylesheet %}
     <link href="../static/mood.css" rel="stylesheet">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 {% endblock %}
 
@@ -25,27 +24,31 @@
                 <img src="../static/img/user.png" alt="profile pic">
             </div>
             {% if current_user.is_authenticated %}
-            <p>{{current_user.username}}</p>
+                <p>{{current_user.username}}</p>
             {% endif %}
         </div>
 
         <div class="journal">
+
+            <!-- Top part of journal entries -->
             <div class="header">
                 <span><p>Journal Entries</p></span>
                 {% if current_user.is_authenticated %}
-                <img src="../static/img/plus.png" class="add_entry" alt="add entry">
+                    <img src="../static/img/plus.png" class="add_entry" alt="add entry">
                 {% endif %}
             </div>
+
+            <!-- Journal entry content -->
             <div class="wrapper">
-              {% if entryData|length == 0 %}
-                  {% if current_user.is_anonymous %}
-                  <div class="message">Sign in to create an entry.</div>
-                  {% else %}
-                  <div class="message">No entries created.</div>
-                  {% endif %}
-              {% else %}
-                <div class="grid">
-                  {% for entry in entryData %}
+                {% if entryData|length == 0 %}
+                    {% if current_user.is_anonymous %}
+                    <div class="message">Sign in to create an entry.</div>
+                    {% else %}
+                    <div class="message">No entries created.</div>
+                    {% endif %}
+                {% else %}
+                    <div class="grid">
+                    {% for entry in entryData %}
                     <div class="entry">
                         <div class="content">
                             {% if (entry.title == "" or entry.title == '\r') %}
@@ -59,20 +62,23 @@
                             {% else %}
                                 <p class="overflow">{{ entry.date.strftime("%x %-I:%M %p") }}<span class="entryTextGray">&nbsp;{{ entry.journal }}</span></p>
                             {% endif %}
-
                         </div>
+
                         <div class="controls">
                             <a href="/mood_rating/{{entry.id}}"><img src="../static/img/edit.png" alt="edit entry" class="edit_entry"></a>
                             <a href="/delete/{{entry.id}}"><img src="../static/img/trash.png" alt="trash" class="trash"></a>
                         </div>
                     </div>
-                  {% endfor %}
+                    {% endfor %}
                 {% endif %}
-                </div>
+                    </div>
             </div>
+
         </div>
     </div>
+
     <br>
+
     {% if current_user.is_authenticated %}
     <div class="graph">
         <canvas id="moodchart"></canvas>
@@ -82,13 +88,12 @@
 
 
     <script>
-      var dateVar = new Date();
-      var year = dateVar.getFullYear();
-      var month = dateVar.getMonth() + 1;
-      var date = dateVar.getDate();
-      const displayedDate = `${month}/${date}/${year}`;
-      console.log(displayedDate);
-      document.getElementById("todayDate").innerHTML = '&nbsp&nbsp' + displayedDate;
+        var dateVar = new Date();
+        var year = dateVar.getFullYear();
+        var month = dateVar.getMonth() + 1;
+        var date = dateVar.getDate();
+        const displayedDate = `${month}/${date}/${year}`;
+        document.getElementById("todayDate").innerHTML = '&nbsp&nbsp' + displayedDate;
     </script>
 
 
