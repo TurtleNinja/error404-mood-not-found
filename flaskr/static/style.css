@@ -5,65 +5,64 @@ html, body {
     padding: 1vw;
     font-family: 'Red Hat Display', sans-serif !important;
 }
+
 #nav-bar {
-    /* display: flex; */
-    /* margin-bottom: 15px; */
     position: relative;
+    font-size: 19px;
 }
+
 #nav-bar a, #nav-bar span {
     text-decoration: none;
-    /* display: inline-block; */
-    /* margin: 5px 30px; */
     color: white;
 }
+
 .mobile {
     display: flex;
-    /* margin-bottom: 1vh; */
     justify-content: space-between;
 }
 
 .navbarlink{
     margin: 0 2vw 0 0 !important;
 }
+
 #nav-bar span {
     margin: 0;
 }
+
 .active {
     font-weight: 700;
 }
 
 #toggle {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 22px;
     position: relative;
     color: white;
 }
+
 #pages, .dropdown {
     display: none;
 }
 
 #pages {
     position: absolute;
-    /* width: 50%; */
     z-index: 1;
-    /* margin-left: auto;
-    text-align: right; */
     right: 0;
     border: 1px solid gray;
     background-color: black;
 }
+
 #pages a{
     margin: 3px 0;
 }
-/* #page-mobile {
-    background-color: lightgray;
-} */
+
 .left, .right {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1vh 2vw;
 }
+
 .right {
     border-top: 1px solid lightgray;
 }
@@ -73,7 +72,7 @@ html, body {
 }
 
 .black_btn {
-    padding: 7px 3vw;
+    padding: 7px 10vw;
     border-radius: 10px;
     outline: none;
     border: 0;
@@ -82,6 +81,7 @@ html, body {
     font-size: 17px;
     /*margin-top: 1vh;*/
 }
+
 .black_btn:hover {
     cursor: pointer;
 }
@@ -92,6 +92,7 @@ html, body {
     .mobile {
         display: none;
     }
+
     #pages {
         display: flex;
         position: static;
@@ -99,15 +100,16 @@ html, body {
         border: 0;
         background-color: transparent;
     }
+
     .dropdown {
         display: block;
         color: white;
     }
 
-
     #nav-bar {
         margin-bottom: 1.5vh;
     }
+
     #nav-bar a, #nav-bar span, .dropdown {
         margin: 0 2vw;
         vertical-align: middle;
@@ -123,8 +125,8 @@ html, body {
         flex-direction: row;
         padding: 0;
         margin: 0;
-        /* flex: 1; */
     }
+
     .right {
         margin-left: auto;
         border: 0;
@@ -168,30 +170,10 @@ html, body {
 
 }
 
-@media only screen and (max-width: 500px) {
-    /* html, body {
-        background-image: url("img/bg.png");
-        background-attachment: fixed;
-        background-size: cover;
-        padding: 5px 5px;
-        font-family: 'Red Hat Display', sans-serif !important;
-    } */
-    /* #nav-bar a {
-        margin: 1vw 3vw;
-    }
-    .left {
-        flex: 1;
-        justify-content: center;
-        align-items: center;
-    }
-    .right {
-        flex: 1;
-        display: inline;
-        float: right;
-        text-align: right;
-        margin: auto;
-    } */
+/* @media only screen and (max-width: 500px) {
+
     .black_btn {
         padding: 7px 10vw;
     }
-}
+
+} */

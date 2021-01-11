@@ -1,15 +1,15 @@
 * {
     box-sizing: border-box;
     /*border: 1px solid red !important*/
-  }
+}
 
-  html, body {
-    background-image: linear-gradient(to top, rgba(33,9,182,1), lightblue);
+html, body {
+    background-image: linear-gradient(to top, #2109B6, lightblue);
     padding: 0;
     margin: auto 0;
-  }
+}
 
-  /* ***NAVIGATION LINKS SECTION *** */
+/* ***NAVIGATION LINKS SECTION *** */
 
 /*styling the nav bar*/
 #nav-bar {
@@ -17,38 +17,9 @@
   margin: 8px 8px 0;
 }
 
-/* div.navbar-nav {
-    display: flex;
-    /*margin-bottom: 10px;*/
-    /*z-index: 0;
-}
 
-div.navbar-nav a {
-  color: white;
-  font-weight: bold;
-  font-size: 25px;
-  display: inline-block;
-  text-decoration: none;
-  margin: 1vw 2vmax;
-  vertical-align: middle;
-  justify-content: center;
-  align-items: center;
-}
+/* styling the home page background image */
 
-div.right {
-  display: inline;
-  float: right;
-  text-align: right;
-  margin: 0 auto;
-  margin-right: 0;
-} */
-
-/* #main-content {
-  display: flex;
-  flex-direction: column;
-} */
-
-/*styling the home page background image*/
 #front {
   width: 100%;
 }
@@ -56,8 +27,7 @@ div.right {
 .frontCenter {
   display: flex;
   position: relative;
-
-  width: 60%;
+  width: 65%;
   margin: 0 auto;
 }
 
@@ -67,27 +37,20 @@ div.right {
 
 /*styling the homepage JoyBot image*/
 #joypic {
-  /* background-size: contain; */
   width: 17em;
   height: 35em;
   align-self: flex-end;
-  /* height: 614px;
-  width: 316px; */
+
   opacity: 0.9;
   text-align: center;
-  /* position: absolute;
-  width: 20rem;
-  height: 38rem;
-  left: 15rem; */
+
 }
 
 .frontContainerRight {
     width: 100%;
-    margin-left: 2vw;
+    margin: 0 2vw;
     display: flex;
-    /* flex-direction: column; */
     position: relative;
-    /* align-self: center; */
 }
 
 /*styling the JoyBot website title*/
@@ -95,51 +58,40 @@ div.right {
     margin-top: auto;
     position: absolute;
     bottom: 20px;
-    /* width: 80%; */
-    /* width: 50vw; */
 }
 
 #websiteTitle {
-  font-size: 6vw;
-  margin: 0 0 10px 0;
+    font-size: 5.5vw;
+    margin: 0 0 10px 0;
 
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 
 /*styling the website description*/
 #websiteDescription {
-  /* position: absolute;
-  width: 30rem;
-  height: 20rem;
-  left: 38rem;
-  top: 25rem; */
+    font-size: 18px;
 
-  font-size: 18px;
-  /* line-height: 30px; */
-
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
-
-
 
 
 /*styling the background image of frontPage 2*/
 #frontPage2 {
-  color: white;
-  /* width: 100%; */
-  /* margin: 0 auto; */
-  text-align: center;
-  padding: 3vh 6vw;
-  padding: 2rem 0;
-  flex-grow: 2;
+    color: white;
+    /* width: 100%; */
+    /* margin: 0 auto; */
+    text-align: center;
+    padding: 3vh 6vw;
+    padding: 2rem 0;
+    flex-grow: 2;
 
-  background-image: url("img/homePage2background.png");
-  background-color: rgba(33, 9, 182, 0);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+    background-image: url("img/homePage2background.png");
+    background-color: rgba(33, 9, 182, 0);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* styling of moodtracker, mood randomizer, and Joybot icon on home page 2 */
@@ -154,7 +106,6 @@ div.right {
 #JoyBot-box {
     margin-bottom: 0;
 }
-
 
 .image-icons {
   background-color: white;
@@ -178,8 +129,8 @@ div.right {
 
 /* sizing the icons to fit the box */
 #mood-tracker-icon, #mood-randomizer-icon {
-  width: 8em;
-  height: 7em;
+  width: 7em;
+  height: 5.5em;
 }
 
 #joy-image-icon {
@@ -206,8 +157,12 @@ div.right {
       bottom: 0;
     }
 
-    #titleDescCntr h1, #titleDescCntr p{
+    #websiteTitle, #websiteDescription {
       color: white;
+    }
+
+    #websiteTitle {
+      font-size: 40px;
     }
 
     #joy-image-section {
@@ -228,13 +183,19 @@ div.right {
       margin: auto;
       text-align: center;
       margin-bottom: 3vh;
+      padding: 0 15vw;
     }
 
     .image-icons, .image-desc {
       margin-left: 0;
       text-align: center;
     }
+
     .image-desc {
         width: 100%;
+    }
+
+    .image-desc p {
+        font-size: 17px;
     }
 }
