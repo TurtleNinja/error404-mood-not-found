@@ -4,6 +4,7 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model, UserMixin):
+    __tablename__ = "Users"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
     email = db.Column(db.String(128), unique=True, nullable=False)
@@ -25,6 +26,7 @@ def load_user(id):
     return User.query.get(int(id))
 
 class Entry(db.Model):
+    __tablename__ = "Entries"
     id =  db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.now())
     author_id = db.Column(db.Integer, db.ForeignKey(User.id), nullable=False)
@@ -32,7 +34,7 @@ class Entry(db.Model):
     title = db.Column(db.Text)
     journal = db.Column(db.Text)
 
-    author = db.relationship('User', backref=db.backref('entries', lazy=True))
+    #author = db.relationship('User', backref=db.backref('entries', lazy=True))
 
     def __init__(self, mood_rate, title, journal, author):
         self.mood_rate = mood_rate
@@ -42,5 +44,3 @@ class Entry(db.Model):
 
     def __repr__(self):
         return '<Entry {}>'.format(self.journal[:30])
-
-#db.create_all()
