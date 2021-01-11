@@ -5,31 +5,27 @@ $(document).ready(function() {
         url: "/get_data",
         type: "get",
         success: function(result) {
-          full_data = JSON.parse(result.mood);
-          data = full_data['data'];
-          label = full_data['labels'];
-          createLineChart(data, label);
+            full_data = JSON.parse(result.mood);
+            data = full_data['data'];
+            label = full_data['labels'];
+            createLineChart(data, label);
         },
     });
 
-    function changeColor(data){
+    function changeColor(data) {
         var colors = [];
-        for(i = 0; i < data.length; i++){
+        for (i = 0; i < data.length; i++) {
             var color = "";
 
-            if(data[i] == 1) {
+            if (data[i] == 1) {
                 color = "red";
-            }
-            else if(data[i] == 2) {
+            } else if (data[i] == 2) {
                 color = "orange"
-            }
-            else if(data[i] == 3) {
+            } else if (data[i] == 3) {
                 color = "blue"
-            }
-            else if(data[i] == 4) {
+            } else if (data[i] == 4) {
                 color = "green"
-            }
-            else{
+            } else {
                 color = "yellow"
             }
             colors.push(color);
@@ -76,8 +72,7 @@ $(document).ready(function() {
                     display: true,
                     text: 'Mood Rating Trend (Last 7)',
                 },
-                labels: {
-                },
+                labels: {},
                 scales: {
                     pointLabels: { fontSize: 100 },
                     yAxes: [{
